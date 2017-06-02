@@ -3,6 +3,14 @@
     <string name="app_sub_name" translatable="true">Memory Builder</string>
     <string name="action_settings">Settings</string>
 
+
+    <!-- Tutorial Names -->
+    <string name="tutorial_start" translatable="false">Getting Started</string>
+    <string name="tutorial_deck" translatable="false">Creating a Deck </string>
+    <string name="tutorial_settings" translatable="false">Modify Settings</string>
+    <string name="tutorial_leitner" translatable="false">The Leitner Method</string>
+
+
     <!-- Message values -->
     <string name="msg_no_network" translatable="true">No network connection! Please check your settings.</string>
 
