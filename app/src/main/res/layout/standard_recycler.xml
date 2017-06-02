@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/choiceCoordinator"
+    style="@style/Elephant.Coordinator">
+
+    <include layout="@layout/toolbar"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/choiceRecycler"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        style="@style/Elephant.Recycler"/>
+
+    <TextView
+        android:id="@+id/choiceEmptyView"
+        style="@style/Elephant.EmptyText"/>
+
+    <include layout="@layout/fab"/>
+
+</android.support.design.widget.CoordinatorLayout>
