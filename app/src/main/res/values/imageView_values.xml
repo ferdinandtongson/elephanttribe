@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ImageView Tutorial dimensions -->
+    <dimen name="tutorial_imageView_width">55dp</dimen>
+    <dimen name="tutorial_imageView_height">55dp</dimen>
+    <dimen name="tutorial_imageView_marginBottom">10dp</dimen>
+
+    <!-- Styles -->
+    <style name="Elephant.ImageView.CardImage" parent="ElephantTheme">
+        <item name="android:layout_width">@dimen/tutorial_imageView_width</item>
+        <item name="android:layout_height">@dimen/tutorial_imageView_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">@dimen/tutorial_imageView_marginBottom</item>
+    </style>
+
+
+</resources>
