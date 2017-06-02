@@ -13,7 +13,7 @@
         <activity
             android:name=".view.activity.DeckActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +21,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".view.activity.TutorialActivity"
+            android:launchMode="singleTask" />
 
         <provider android:name=".controller.modelside.provider.ElephantProvider"
             android:authorities="me.makeachoice.elephanttribe.memorybuilder.app"/>
