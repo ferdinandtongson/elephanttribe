@@ -19,13 +19,21 @@ public class UserContract extends MyContract implements BaseColumns {
 /**************************************************************************************************/
 
     //table name
-    public static final String TABLE_NAME = "user";
+    public final static String TABLE_NAME = "user";
 
     //user info
-    public static final String COLUMN_USERID = "user_id";
+    public final static String COLUMN_USERID = "user_id";
     public final static String COLUMN_USER = "user_name";
     public final static String COLUMN_EMAIL = "user_email";
     public final static String COLUMN_REGISTRATION = "registration";
+
+    public final static String CREATE_TABLE = "CREATE TABLE " +
+            UserContract.TABLE_NAME + " (" +
+            UserContract._ID + " INTEGER PRIMARY KEY, " +
+            UserContract.COLUMN_USERID + " TEXT NOT NULL, " +
+            UserContract.COLUMN_USER + " TEXT NOT NULL, " +
+            UserContract.COLUMN_EMAIL + " TEXT, " +
+            UserContract.COLUMN_REGISTRATION + " TEXT);";
 
 
     //default sort order
