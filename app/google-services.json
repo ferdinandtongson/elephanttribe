@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1010006156789",
+    "firebase_url": "https://elephanttribe-8b216.firebaseio.com",
+    "project_id": "elephanttribe-8b216",
+    "storage_bucket": "elephanttribe-8b216.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010006156789:android:96c9db975cc4e615",
+        "android_client_info": {
+          "package_name": "me.makeachoice.elephanttribe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1010006156789-agafuht6cq0g2coq4sucbvivo0qlsc3r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.makeachoice.elephanttribe",
+            "certificate_hash": "14a635fb1b6da44566cacc4290024e389d7b6bd5"
+          }
+        },
+        {
+          "client_id": "1010006156789-opa3t7ogp5bu7rlat199jgabq44beoms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL5QllpX6kizjEuXclN67DPs2YnoUuXK8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1010006156789-opa3t7ogp5bu7rlat199jgabq44beoms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
