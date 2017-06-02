@@ -3,6 +3,8 @@ package me.makeachoice.elephanttribe.controller.viewside.housekeeper.base;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import me.makeachoice.elephanttribe.controller.manager.Boss;
 import me.makeachoice.elephanttribe.view.activity.base.MyActivity;
@@ -62,6 +64,13 @@ public abstract class MyHouseKeeper implements MyActivity.Bridge {
 
         //get Boss
         mBoss = (Boss)mActivity.getApplication();
+
+        //Remove title bar
+        mActivity.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        //Remove notification bar
+        mActivity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //set activity layout
         mActivity.setContentView(mLayoutId);
