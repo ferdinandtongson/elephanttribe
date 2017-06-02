@@ -1,4 +1,22 @@
 <resources>
-    <string name="app_name">ElephantTribe</string>
+    <string name="app_name">Elephant Tribe</string>
+    <string name="app_sub_name" translatable="true">Memory Builder</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Message values -->
+    <string name="msg_no_network" translatable="true">No network connection! Please check your settings.</string>
+
+
+
+    <!-- Dictionary -->
+    <string name="anonymous" translatable="true">Anonymous</string>
+    <string name="decks" translatable="true">Decks</string>
+    <string name="help" translatable="true">Help</string>
+    <string name="market" translatable="true">Market</string>
+    <string name="settings" translatable="true">Settings</string>
+    <string name="sign_in" translatable="true">Sign In</string>
+    <string name="sign_out" translatable="true">Sign Out</string>
+    <string name="tutorials" translatable="true">Tutorials</string>
+
+
 </resources>
