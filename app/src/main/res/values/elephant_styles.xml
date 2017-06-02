@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="ElephantTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">true</item>
+    </style>
+
+    <style name="Elephant.Coordinator" parent="ElephantTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="Elephant.FAB" parent="ElephantTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:clickable">true</item>
+        <item name="android:src">@drawable/ic_add_black_36dp</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="Elephant.Recycler" parent="ElephantTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/standard_marginTop</item>
+        <item name="android:padding">@dimen/standard_outside_padding</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="Elephant.Drawer" parent="ElephantTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:background">@drawable/orange_radial</item>
+    </style>
+
+    <style name="Elephant.BackgroundImage" parent="ElephantTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:src">@drawable/elephant01c</item>
+    </style>
+
+    <!-- NavigationView component styles -->
+    <style name="Elephant.Navigation" parent="ElephantTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:background">@color/silver</item>
+    </style>
+
+</resources>
