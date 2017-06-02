@@ -14,6 +14,8 @@ public interface iServerName {
 
     final static String KEEPER_DECK = "kDeck";
     final static String KEEPER_TUTORIAL = "kTutorial";
+    final static String KEEPER_MARKET = "kMarket";
+    final static String KEEPER_SETTINGS = "kSettings";
 
 /**************************************************************************************************/
 
