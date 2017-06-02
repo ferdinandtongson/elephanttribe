@@ -4,8 +4,10 @@ import java.util.HashMap;
 
 import me.makeachoice.elephanttribe.R;
 import me.makeachoice.elephanttribe.controller.manager.base.MyBoss;
+import me.makeachoice.elephanttribe.controller.viewside.housekeeper.SettingsKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.TutorialKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.deck.DeckKeeper;
+import me.makeachoice.elephanttribe.controller.viewside.housekeeper.MarketKeeper;
 import me.makeachoice.elephanttribe.model.item.user.UserItem;
 
 /**
@@ -55,6 +57,11 @@ public class Boss extends MyBoss{
         TutorialKeeper tutorialKeeper = new TutorialKeeper(R.layout.activity_tutorial);
         registerHouseKeeper(KEEPER_TUTORIAL, tutorialKeeper);
 
+        MarketKeeper marketKeeper = new MarketKeeper(R.layout.activity_market);
+        registerHouseKeeper(KEEPER_MARKET, marketKeeper);
+
+        SettingsKeeper settingsKeeper = new SettingsKeeper(R.layout.activity_settings);
+        registerHouseKeeper(KEEPER_SETTINGS, settingsKeeper);
 
     }
 
