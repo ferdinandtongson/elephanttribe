@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/choiceDrawerHeader"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dwr_header_height"
+    android:gravity="bottom"
+    >
+
+    <ImageView android:id="@+id/dwrHeader_imgBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:background="@color/colorPrimaryDark"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dwr_header_outside_padding"
+        >
+
+        <ImageView android:id="@+id/dwrHeader_imgIcon"
+            android:layout_width="@dimen/dwr_header_icon_size"
+            android:layout_height="@dimen/dwr_header_icon_size"
+            android:paddingTop="@dimen/dwr_header_inside_paddingTop" />
+
+        <TextView android:id="@+id/dwrHeader_txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/dwrHeader_imgIcon"
+            android:paddingTop="@dimen/dwr_header_inside_paddingTop"
+            android:textSize="@dimen/dwr_header_title_textSize"
+            android:textColor="@color/defaultTextColor"
+            android:text="Title"/>
+
+        <TextView android:id="@+id/dwrHeader_txtSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/dwrHeader_imgIcon"
+            android:layout_below="@id/dwrHeader_txtTitle"
+            android:textSize="@dimen/dwr_header_subtitle_textSize"
+            android:textColor="@color/defaultTextColor"
+            android:text="Subtitle"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
