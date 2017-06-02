@@ -8,9 +8,9 @@ import android.net.Uri;
 
 public class MyContract {
 
-    static final String CONTENT_AUTHORITY = "me.makeachoice.elephanttribe.memorybuilder.app";
+    protected static final String CONTENT_AUTHORITY = "me.makeachoice.elephanttribe.memorybuilder.app";
 
 
-    static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+    protected static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
 }
