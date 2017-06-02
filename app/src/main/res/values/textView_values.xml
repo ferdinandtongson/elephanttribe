@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- TextSize -->
+    <dimen name="textSize_xxLarge">24sp</dimen>
+    <dimen name="textSize_xLarge">18sp</dimen>
+    <dimen name="textSize_large">16sp</dimen>
+    <dimen name="textSize_medium">14sp</dimen>
+    <dimen name="textSize_small">12sp</dimen>
+    <dimen name="textSize_xSmall">10sp</dimen>
+
+    <!-- Padding -->
+    <dimen name="textView_padding">7dp</dimen>
+
+    <!-- Margin -->
+    <dimen name="textView_mainTitle_marginTop">75dp</dimen>
+
+    <!-- TextColor -->
+    <color name="textColor_default">@color/black</color>
+    <color name="textColor_error">@color/wine</color>
+    <color name="textColor_disabled">@color/gray</color>
+
+
+    <!-- Styles -->
+    <style name="Elephant.TextView" parent="ElephantTheme">
+        <item name="android:padding">@dimen/textView_padding</item>
+        <item name="android:textColor">@color/textColor_default</item>
+    </style>
+
+
+    <style name="Elephant.EmptyText" parent="Elephant.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:background">@color/cobalt</item>
+        <item name="android:textSize">@dimen/textSize_xxLarge</item>
+    </style>
+
+
+    <style name="Elephant.TextView.MainTitle" parent="Elephant.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">@dimen/textView_mainTitle_marginTop</item>
+        <item name="android:layout_gravity">top</item>
+        <item name="android:textSize">@dimen/textSize_xxLarge</item>
+    </style>
+
+    <style name="Elephant.TextView.CardTitle" parent="Elephant.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:textSize">@dimen/textSize_small</item>
+    </style>
+
+</resources>
