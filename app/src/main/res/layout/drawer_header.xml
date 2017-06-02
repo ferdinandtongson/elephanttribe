@@ -30,8 +30,8 @@
             android:layout_toEndOf="@id/dwrHeader_imgIcon"
             android:paddingTop="@dimen/dwr_header_inside_paddingTop"
             android:textSize="@dimen/dwr_header_title_textSize"
-            android:textColor="@color/defaultTextColor"
-            android:text="Title"/>
+            android:textColor="@color/textColor_default"
+            />
 
         <TextView android:id="@+id/dwrHeader_txtSubtitle"
             android:layout_width="match_parent"
@@ -39,11 +39,8 @@
             android:layout_toEndOf="@id/dwrHeader_imgIcon"
             android:layout_below="@id/dwrHeader_txtTitle"
             android:textSize="@dimen/dwr_header_subtitle_textSize"
-            android:textColor="@color/defaultTextColor"
-            android:text="Subtitle"/>
-
-
-
+            android:textColor="@color/textColor_default"
+            />
     </RelativeLayout>
 
 </RelativeLayout>
