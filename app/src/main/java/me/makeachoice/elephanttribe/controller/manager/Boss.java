@@ -8,6 +8,7 @@ import me.makeachoice.elephanttribe.controller.viewside.housekeeper.SettingsKeep
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.TutorialKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.deck.DeckKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.MarketKeeper;
+import me.makeachoice.elephanttribe.model.item.deck.DeckItem;
 import me.makeachoice.elephanttribe.model.item.user.UserItem;
 
 /**
@@ -82,6 +83,26 @@ public class Boss extends MyBoss{
 
     public UserItem getUser(){
         return mUserItem;
+    }
+
+/**************************************************************************************************/
+
+
+
+/**************************************************************************************************/
+/*
+ * Deck Methods:
+ */
+/**************************************************************************************************/
+
+    private DeckItem mDeckSelected;
+
+    public void setDeckSelected(DeckItem deck){
+        mDeckSelected = deck;
+    }
+
+    public DeckItem getDeckSelected(){
+        return mDeckSelected;
     }
 
 /**************************************************************************************************/
