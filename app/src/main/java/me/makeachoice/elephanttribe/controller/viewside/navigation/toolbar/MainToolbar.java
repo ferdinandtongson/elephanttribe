@@ -52,7 +52,7 @@ public class MainToolbar extends MyToolbar{
     public final static int DEFAULT_BG_COLOR_ID = R.color.colorToolbarBackground;
 
     //DEFAULT_TEXT_COLOR_ID - toolbar text color resource id
-    public final static int DEFAULT_TEXT_COLOR_ID = R.color.defaultTextColor;
+    public final static int DEFAULT_TEXT_COLOR_ID = R.color.black;
 
     //NAV_ICON_UP_ID - navigation icon "up" drawable resource id
     public final static int NAV_ICON_UP_ID = R.drawable.ic_chevron_left_black_36dp;
