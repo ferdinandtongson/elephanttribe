@@ -13,6 +13,7 @@ public interface iServerName {
 /**************************************************************************************************/
 
     final static String KEEPER_DECK = "kDeck";
+    final static String KEEPER_TUTORIAL = "kTutorial";
 
 /**************************************************************************************************/
 
