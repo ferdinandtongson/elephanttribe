@@ -3,6 +3,39 @@
     <string name="app_sub_name" translatable="true">Memory Builder</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Tag Keys -->
+    <string name="tag_position" translatable="false">tag_position</string>
+    <string name="tag_item" translatable="false">tag_item</string>
+    <string name="tag_boom" translatable="false">tag_boom</string>
+
+    <!-- BoomMenuButton Default values -->
+    <string name="text_inside_circle_button_text_normal">Text Inside Circle Button(Normal)</string>
+    <string name="text_inside_circle_button_text_highlighted">Text Inside Circle Button(Highlighted)</string>
+    <string name="text_inside_circle_button_text_unable">Text Inside Circle Button(Unable)</string>
+
+    <string name="text_outside_circle_button_text_normal">Text Outside Circle Button(Normal)</string>
+    <string name="text_outside_circle_button_text_highlighted">Text Outside Circle Button(Highlighted)</string>
+    <string name="text_outside_circle_button_text_unable">Text Outside Circle Button(Unable)</string>
+
+    <string name="text_ham_button_text_normal">Ham Button Text(Normal)</string>
+    <string name="text_ham_button_text_highlighted">Ham Button Text(Highlighted)</string>
+    <string name="text_ham_button_text_unable">Ham Button Text(Unable)</string>
+    <string name="text_ham_button_sub_text_normal">Ham Button Sub Text(Normal)</string>
+    <string name="text_ham_button_sub_text_highlighted">Ham Button Sub Text(Highlighted)</string>
+    <string name="text_ham_button_sub_text_unable">Ham Button Sub Text(Unable)</string>
+
+    <!-- Deck Boom Menu Names -->
+    <string name="bm_edit" translatable="true">Edit Deck</string>
+    <string name="bm_leitner" translatable="true">Leitner Method</string>
+    <string name="bm_flashcard" translatable="false">@string/flashcards</string>
+    <string name="bm_stats" translatable="false">@string/stats</string>
+    <string name="bm_leitner_subtitle" translatable="true">(long-term memory builder)</string>
+    <string name="bm_flashcard_subtitle" translatable="true">(short-term memory builder)</string>
+    <string name="bm_stats_subtitle" translatable="true">(flashcard and leitner statistics)</string>
+
+
+    <!-- EmptyList Messages -->
+    <string name="emptyList_deck" translatable="true">No Decks</string>
 
     <!-- Tutorial Names -->
     <string name="tutorial_start" translatable="false">Getting Started</string>
@@ -19,8 +52,11 @@
     <!-- Dictionary -->
     <string name="anonymous" translatable="true">Anonymous</string>
     <string name="decks" translatable="true">Decks</string>
+    <string name="edit" translatable="true">Edit</string>
+    <string name="flashcards" translatable="true">Flashcards</string>
     <string name="help" translatable="true">Help</string>
     <string name="market" translatable="true">Market</string>
+    <string name="stats" translatable="true">Stats</string>
     <string name="settings" translatable="true">Settings</string>
     <string name="sign_in" translatable="true">Sign In</string>
     <string name="sign_out" translatable="true">Sign Out</string>
