@@ -1,7 +1,7 @@
 package me.makeachoice.elephanttribe.model.item.user;
 
 /**
- * Created by tongson on 4/29/17.
+ * _UserBaseItem is base item holding general user info
  */
 
 public class _UserBaseItem {
@@ -12,7 +12,7 @@ public class _UserBaseItem {
  */
 /**************************************************************************************************/
 
-    public String user;
+    public String userName;
     public String email;
     public String registration;
 
