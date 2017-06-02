@@ -22,22 +22,22 @@ public class UserContract extends MyContract implements BaseColumns {
     public final static String TABLE_NAME = "user";
 
     //user info
-    public final static String COLUMN_USERID = "user_id";
-    public final static String COLUMN_USER = "user_name";
-    public final static String COLUMN_EMAIL = "user_email";
-    public final static String COLUMN_REGISTRATION = "registration";
+    public final static String USERID = "userId";
+    public final static String USERNAME = "userName";
+    public final static String EMAIL = "email";
+    public final static String REGISTRATION = "registration";
 
     public final static String CREATE_TABLE = "CREATE TABLE " +
             UserContract.TABLE_NAME + " (" +
             UserContract._ID + " INTEGER PRIMARY KEY, " +
-            UserContract.COLUMN_USERID + " TEXT NOT NULL, " +
-            UserContract.COLUMN_USER + " TEXT NOT NULL, " +
-            UserContract.COLUMN_EMAIL + " TEXT, " +
-            UserContract.COLUMN_REGISTRATION + " TEXT);";
+            UserContract.USERID + " TEXT NOT NULL, " +
+            UserContract.USERNAME + " TEXT NOT NULL, " +
+            UserContract.EMAIL + " TEXT, " +
+            UserContract.REGISTRATION + " TEXT);";
 
 
     //default sort order
-    public final static String DEFAULT_SORT_ORDER = COLUMN_USER + " COLLATE NOCASE ASC";
+    public final static String DEFAULT_SORT_ORDER = USERNAME + " COLLATE NOCASE ASC";
 
 /**************************************************************************************************/
 
@@ -51,10 +51,10 @@ public class UserContract extends MyContract implements BaseColumns {
     public static String[] PROJECTION =
         {
                 _ID,
-                COLUMN_USERID,
-                COLUMN_USER,
-                COLUMN_EMAIL,
-                COLUMN_REGISTRATION
+                USERID,
+                USERNAME,
+                EMAIL,
+                REGISTRATION
         };
 
 
@@ -72,7 +72,7 @@ public class UserContract extends MyContract implements BaseColumns {
  */
 /**************************************************************************************************/
 
-    public final static String PATH = "user";
+    public final static String PATH = TABLE_NAME;
 
     public static Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH).build();
 
@@ -94,7 +94,7 @@ public class UserContract extends MyContract implements BaseColumns {
 
     //"content://CONTENT_AUTHORITY/user/user_id/[userId]
     public static Uri buildWithId(String userId){
-        return CONTENT_URI.buildUpon().appendPath(COLUMN_USERID).appendPath(userId).build();
+        return CONTENT_URI.buildUpon().appendPath(USERID).appendPath(userId).build();
     }
 
 /**************************************************************************************************/
