@@ -20,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <provider android:name=".controller.modelside.provider.ElephantProvider"
+            android:authorities="me.makeachoice.elephanttribe.memorybuilder.app"/>
+
     </application>
 
 </manifest>
