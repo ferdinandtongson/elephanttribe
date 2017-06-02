@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/choiceCoordinator"
+    style="@style/Elephant.Coordinator">
+
+    <include layout="@layout/toolbar"/>
+
+    <TextView android:id="@+id/tutorial_txtTitle"
+        android:text="@string/market"
+        style="@style/Elephant.TextView.MainTitle"/>
+
+
+
+</android.support.design.widget.CoordinatorLayout>
