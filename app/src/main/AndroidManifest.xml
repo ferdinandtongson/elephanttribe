@@ -24,6 +24,12 @@
         <activity android:name=".view.activity.TutorialActivity"
             android:launchMode="singleTask" />
 
+        <activity android:name=".view.activity.MarketActivity"
+            android:launchMode="singleTask" />
+
+        <activity android:name=".view.activity.SettingsActivity"
+            android:launchMode="singleTask" />
+
         <provider android:name=".controller.modelside.provider.ElephantProvider"
             android:authorities="me.makeachoice.elephanttribe.memorybuilder.app"/>
 
