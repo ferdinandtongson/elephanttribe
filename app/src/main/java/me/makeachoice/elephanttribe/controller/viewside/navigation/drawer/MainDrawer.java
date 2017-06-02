@@ -12,6 +12,7 @@ import android.widget.Toast;
 import me.makeachoice.elephanttribe.R;
 import me.makeachoice.elephanttribe.utilities.SignInUtility;
 import me.makeachoice.elephanttribe.view.activity.DeckActivity;
+import me.makeachoice.elephanttribe.view.activity.TutorialActivity;
 import me.makeachoice.elephanttribe.view.activity.base.MyActivity;
 
 /**************************************************************************************************/
@@ -187,7 +188,7 @@ public class MainDrawer extends MyDrawer implements NavigationView.OnNavigationI
                 break;
             case MENU_TUTORIAL:
                 Toast.makeText(mActivity,"Tutorial",Toast.LENGTH_SHORT).show();
-                //activityRequest(TutorialActivity.class);
+                activityRequest(TutorialActivity.class);
                 break;
             case MENU_SETTINGS:
                 Toast.makeText(mActivity,"Settings",Toast.LENGTH_SHORT).show();
