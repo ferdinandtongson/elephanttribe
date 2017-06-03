@@ -44,7 +44,7 @@ public class MainPreference {
  */
 /**************************************************************************************************/
 
-    public void initialize(String userId){
+    public void requestUser(String userId){
         //get user id
         mUserId = userId;
 
