@@ -4,6 +4,7 @@ import android.content.UriMatcher;
 
 import java.util.HashMap;
 
+import me.makeachoice.elephanttribe.model.contract.deck.DeckContract;
 import me.makeachoice.elephanttribe.model.contract.flashcard.FlashcardContract;
 import me.makeachoice.elephanttribe.model.contract.user.UserContract;
 
@@ -35,6 +36,9 @@ public class UriMatcherHelper {
 
         //user: range (100 - 199)
         addUserUri(matcher);
+
+        //deck: range (200 - 299)
+        addDeckUri(matcher);
 
         //flashcard: range (300 - 399)
         addUriFlashcard(matcher);
@@ -84,8 +88,47 @@ public class UriMatcherHelper {
 
 
 
+/**************************************************************************************************/
+/*
+ * Deck Uri: (200 - 299)
+ *      void addDeckUri(...) - add uri values to uriMatcher object
+ */
+/**************************************************************************************************/
 
+    //deck uri variables (200 - 299)
+    public static final int DECK = 200;
+    public static final int DECK_WITH_USERID = 201;
+    public static final int DECK_WITH_DECKID = 202;
+    public static final int DECK_WITH_STATUS = 203;
 
+    /*
+     * void addDeckUri(...) - add uri values to uriMatcher object
+     */
+    private static void addDeckUri(UriMatcher matcher){
+        String path = DeckContract.PATH;
+
+        //"content://CONTENT_AUTHORITY/deck
+        matcher.addURI(CONTENT_AUTHORITY, path, DECK);
+        mContentMap.put(DECK, DeckContract.CONTENT_TYPE);
+
+        //"content://CONTENT_AUTHORITY/deck/[userId]
+        String userIdPath = path + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, userIdPath, DECK_WITH_USERID);
+        mContentMap.put(DECK_WITH_USERID, DeckContract.CONTENT_TYPE);
+
+        //"content://CONTENT_AUTHORITY/deck/[userId]/deckId/[deckId]
+        String deckIdPath = userIdPath + "/" + DeckContract.DECKID + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, deckIdPath, DECK_WITH_DECKID);
+        mContentMap.put(DECK_WITH_DECKID, DeckContract.CONTENT_ITEM_TYPE);
+
+        //"content://CONTENT_AUTHORITY/deck/[userId]/status/[status]
+        String statusPath = userIdPath + "/" + DeckContract.STATUS + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, statusPath, DECK_WITH_STATUS);
+        mContentMap.put(DECK_WITH_STATUS, DeckContract.CONTENT_TYPE);
+
+    }
+
+/**************************************************************************************************/
 
 
 /**************************************************************************************************/
