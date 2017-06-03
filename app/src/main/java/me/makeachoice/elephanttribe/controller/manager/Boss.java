@@ -8,6 +8,7 @@ import me.makeachoice.elephanttribe.controller.manager.base.MyBoss;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.FlashcardKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.SettingsKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.TutorialKeeper;
+import me.makeachoice.elephanttribe.controller.viewside.housekeeper.deck.DeckDetailKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.deck.DeckKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.MarketKeeper;
 import me.makeachoice.elephanttribe.model.item.deck.DeckItem;
@@ -56,6 +57,9 @@ public class Boss extends MyBoss{
     private void initializeHouseKeeper(){
         DeckKeeper deckKeeper = new DeckKeeper(R.layout.activity_deck);
         registerHouseKeeper(KEEPER_DECK, deckKeeper);
+
+        DeckDetailKeeper deckDetailKeeper = new DeckDetailKeeper(R.layout.activity_deck_detail);
+        registerHouseKeeper(KEEPER_DECK_DETAIL, deckDetailKeeper);
 
         FlashcardKeeper flashcardKeeper = new FlashcardKeeper(R.layout.activity_fragment);
         registerHouseKeeper(KEEPER_FLASHCARD, flashcardKeeper);
