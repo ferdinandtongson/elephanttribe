@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import java.util.HashMap;
 
 import me.makeachoice.elephanttribe.R;
-import me.makeachoice.elephanttribe.controller.manager.base.MaidRegistry;
+import me.makeachoice.elephanttribe.controller.manager.MaidRegistry;
 import me.makeachoice.elephanttribe.controller.viewside.maid.base.MyMaid;
 import me.makeachoice.elephanttribe.view.activity.base.MyActivity;
 
