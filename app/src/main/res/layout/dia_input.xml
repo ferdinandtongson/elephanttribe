@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
+        android:src="@drawable/cobalt_linear"
+        android:background="@drawable/elephant01c"/>
+
+    <TextView android:id="@+id/diaInput_txtTitle01"
+        style="@style/Elephant.TextView.InfoTitle"/>
+
+    <EditText android:id="@+id/diaInput_edtValue01"
+        android:layout_below="@id/diaInput_txtTitle01"
+        android:maxLines="1"
+        android:imeOptions="actionNext"
+        style="@style/Elephant.EditText"/>
+
+    <TextView android:id="@+id/diaInput_txtMaxCount01"
+        android:layout_below="@id/diaInput_edtValue01"
+        style="@style/Elephant.TextView.Count"/>
+
+    <TextView android:id="@+id/diaInput_txtTitle02"
+        android:layout_below="@id/diaInput_edtValue01"
+        style="@style/Elephant.TextView.InfoTitle"/>
+
+    <EditText android:id="@+id/diaInput_edtValue02"
+        android:layout_below="@id/diaInput_txtTitle02"
+        android:minLines="4"
+        android:maxLines="4"
+        android:maxLength="@integer/deck_answer_max_length"
+        android:imeOptions="actionDone"
+        style="@style/Elephant.EditText"/>
+
+    <TextView android:id="@+id/diaInput_txtMaxCount02"
+        android:layout_below="@id/diaInput_edtValue02"
+        style="@style/Elephant.TextView.Count"/>
+
+    <TextView android:id="@+id/diaInput_txtSave"
+        android:layout_below="@id/diaInput_txtMaxCount02"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="7dp"
+        android:text="@string/save"
+        style="@style/Elephant.TextView.Button"/>
+
+    <TextView android:id="@+id/diaInput_txtCancel"
+        android:layout_toStartOf="@id/diaInput_txtSave"
+        android:layout_below="@id/diaInput_txtMaxCount02"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="@dimen/textView_button_spacer"
+        android:text="@string/cancel"
+        style="@style/Elephant.TextView.Button"/>
+
+</RelativeLayout>
