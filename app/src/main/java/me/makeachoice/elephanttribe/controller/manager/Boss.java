@@ -1,5 +1,6 @@
 package me.makeachoice.elephanttribe.controller.manager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import me.makeachoice.elephanttribe.R;
@@ -100,6 +101,7 @@ public class Boss extends MyBoss{
 /**************************************************************************************************/
 
     private DeckItem mDeckSelected;
+    private ArrayList<DeckItem> mDeckList;
 
     public void setDeckSelected(DeckItem deck){
         mDeckSelected = deck;
@@ -107,6 +109,19 @@ public class Boss extends MyBoss{
 
     public DeckItem getDeckSelected(){
         return mDeckSelected;
+    }
+
+    public void setDeckList(ArrayList<DeckItem> deckList){
+        if(mDeckList == null){
+            mDeckList = new ArrayList<>();
+        }
+
+        mDeckList.clear();
+        mDeckList.addAll(deckList);
+    }
+
+    public ArrayList<DeckItem> getDeckList(){
+        return mDeckList;
     }
 
 /**************************************************************************************************/
