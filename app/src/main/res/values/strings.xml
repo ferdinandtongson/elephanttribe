@@ -41,6 +41,7 @@
 
     <!-- EmptyList Messages -->
     <string name="emptyList_deck" translatable="true">No Decks</string>
+    <string name="emptyList_flashcard" translatable="true">No Flashcards</string>
 
     <!-- Tutorial Names -->
     <string name="tutorial_start" translatable="false">Getting Started</string>
@@ -68,18 +69,26 @@
 
 
     <!-- Dictionary -->
+    <string name="add" translatable="true">Add</string>
     <string name="anonymous" translatable="true">Anonymous</string>
+    <string name="answer" translatable="true">Answer</string>
     <string name="cancel" translatable="true">Cancel</string>
+    <string name="clear" translatable="true">Clear</string>
     <string name="deck" translatable="true">Deck</string>
     <string name="decks" translatable="true">Decks</string>
+    <string name="delete" translatable="true">Delete</string>
+    <string name="deleted" translatable="true">Deleted</string>
     <string name="description" translatable="true">Description</string>
     <string name="edit" translatable="true">Edit</string>
+    <string name="flashcard" translatable="true">Flashcard</string>
     <string name="flashcards" translatable="true">Flashcards</string>
     <string name="help" translatable="true">Help</string>
     <string name="info" translatable="true">Info</string>
     <string name="market" translatable="true">Market</string>
+    <string name="modify" translatable="true">Modify</string>
     <string name="name" translatable="true">Name</string>
     <string name="save" translatable="true">Save</string>
+    <string name="saved" translatable="true">Saved</string>
     <string name="school" translatable="true">School</string>
     <string name="stats" translatable="true">Stats</string>
     <string name="settings" translatable="true">Settings</string>
@@ -87,6 +96,7 @@
     <string name="sign_out" translatable="true">Sign Out</string>
     <string name="tags" translatable="true">Tags</string>
     <string name="tutorials" translatable="true">Tutorials</string>
+    <string name="update" translatable="true">Update</string>
 
 
 </resources>
