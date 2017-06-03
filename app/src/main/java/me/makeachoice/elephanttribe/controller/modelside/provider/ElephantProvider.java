@@ -8,10 +8,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
 
+import me.makeachoice.elephanttribe.controller.modelside.query.deck.DeckQuery;
 import me.makeachoice.elephanttribe.controller.modelside.query.flashcard.FlashcardQuery;
 import me.makeachoice.elephanttribe.controller.modelside.query.user.UserQuery;
 import me.makeachoice.elephanttribe.model.db.DBHelper;
 
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_WITH_DECKID;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_WITH_STATUS;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_WITH_USERID;
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.FLASHCARD;
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.FLASHCARD_WITH_CARDID;
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.FLASHCARD_WITH_DECKID;
@@ -98,6 +103,15 @@ public class ElephantProvider extends ContentProvider {
             case USER_WITH_ID:
                 cursor = UserQuery.getUserById(mDBHelper, uri, projection, order);
                 break;
+            case DECK_WITH_USERID:
+                cursor = DeckQuery.getByUserId(mDBHelper, uri, projection, order);
+                break;
+            case DECK_WITH_DECKID:
+                cursor = DeckQuery.getByDeckId(mDBHelper, uri, projection, order);
+                break;
+            case DECK_WITH_STATUS:
+                cursor = DeckQuery.getByStatus(mDBHelper, uri, projection, order);
+                break;
             case FLASHCARD_WITH_USERID:
                 cursor = FlashcardQuery.getByUserId(mDBHelper, uri, projection, order);
                 break;
@@ -150,6 +164,9 @@ public class ElephantProvider extends ContentProvider {
             case USER:
                 returnUri = UserQuery.insert(db, values);
                 break;
+            case DECK:
+                returnUri = DeckQuery.insert(db, values);
+                break;
             case FLASHCARD:
                 returnUri = FlashcardQuery.insert(db, values);
                 break;
@@ -192,6 +209,9 @@ public class ElephantProvider extends ContentProvider {
             case USER:
                 rowsDeleted = UserQuery.delete(db, uri, selection, args);
                 break;
+            case DECK:
+                rowsDeleted = DeckQuery.delete(db, uri, selection, args);
+                break;
             case FLASHCARD:
                 rowsDeleted = FlashcardQuery.delete(db, uri, selection, args);
                 break;
@@ -233,6 +253,9 @@ public class ElephantProvider extends ContentProvider {
         switch(match){
             case USER:
                 rowsUpdated = UserQuery.update(db, uri, values, selection, args);
+                break;
+            case DECK:
+                rowsUpdated = DeckQuery.update(db, uri, values, selection, args);
                 break;
             case FLASHCARD:
                 rowsUpdated = FlashcardQuery.update(db, uri, values, selection, args);
