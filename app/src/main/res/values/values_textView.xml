@@ -15,6 +15,12 @@
     <!-- Margin -->
     <dimen name="textView_mainTitle_marginTop">75dp</dimen>
 
+    <dimen name="textView_button_width">75dp</dimen>
+    <dimen name="textView_button_marginBottom">10dp</dimen>
+    <dimen name="textView_button_textSize">@dimen/textSize_medium</dimen>
+    <dimen name="textView_button_spacer">16dp</dimen>
+
+
     <!-- TextColor -->
     <color name="textView_colorDefault">@color/black</color>
     <color name="textView_colorError">@color/wine</color>
@@ -36,6 +42,16 @@
         <item name="android:background">@color/cobalt</item>
         <item name="android:textSize">@dimen/textSize_xxLarge</item>
     </style>
+
+    <style name="Elephant.EmptyText.Small" parent="Elephant.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/textSize_xLarge</item>
+    </style>
+
 
     <!-- TextView MainTitle Style -->
     <style name="Elephant.TextView.MainTitle" parent="Elephant.TextView">
@@ -67,10 +83,27 @@
         <item name="android:textSize">@dimen/textSize_large</item>
     </style>
 
-    <style name="Elephant.TextView.Count" parent="Elephant.TextView">
-        <item name="android:layout_marginTop">0dp</item>
+    <style name="Elephant.TextView.Count" parent="ElephantTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">7dp</item>
         <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/textView_colorDefault</item>
         <item name="android:textSize">@dimen/textSize_xSmall</item>
     </style>
+
+    <style name="Elephant.TextView.Button" parent="ElephantTheme">
+        <item name="android:layout_width">@dimen/textView_button_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/textView_button_marginBottom</item>
+        <item name="android:padding">@dimen/textView_padding</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/textView_colorDefault</item>
+        <item name="android:textSize">@dimen/textView_button_textSize</item>
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:background">@drawable/button_border</item>
+    </style>
+
 
 </resources>
