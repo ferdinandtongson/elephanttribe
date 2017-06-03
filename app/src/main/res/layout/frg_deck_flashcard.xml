@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/deckFlashcard_crdTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="@dimen/cardview_default_radius"
+        card_view:cardBackgroundColor="@color/cardColor_thickCobalt"
+        style="@style/Elephant.CardView.Background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            >
+
+            <TextView android:id="@+id/deckFlashcard_txtModified"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:visibility="gone"
+                android:textColor="@color/wine"
+                android:textSize="@dimen/textSize_small"
+                style="@style/Elephant.TextView.InfoTitle"/>
+
+            <EditText android:id="@+id/deckFlashcard_edtValue01"
+                android:layout_below="@id/deckFlashcard_txtModified"
+                android:maxLines="1"
+                android:maxLength="@integer/deck_flashcard_max_length"
+                android:hint="@string/flashcard"
+                style="@style/Elephant.EditText"/>
+
+            <TextView android:id="@+id/deckFlashcard_txtMaxCount01"
+                android:layout_below="@id/deckFlashcard_edtValue01"
+                style="@style/Elephant.TextView.Count"/>
+
+            <EditText android:id="@+id/deckFlashcard_edtValue02"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/deckFlashcard_txtMaxCount01"
+                android:minLines="4"
+                android:maxLines="4"
+                android:maxLength="@integer/deck_answer_max_length"
+                android:hint="@string/answer"
+                style="@style/Elephant.EditText"/>
+
+            <TextView android:id="@+id/deckFlashcard_txtMaxCount02"
+                android:layout_below="@id/deckFlashcard_edtValue02"
+                style="@style/Elephant.TextView.Count"/>
+
+            <TextView android:id="@+id/deckFlashcard_txtSave"
+                android:layout_below="@id/deckFlashcard_txtMaxCount02"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="7dp"
+                android:text="@string/save"
+                style="@style/Elephant.TextView.Button"/>
+
+            <TextView android:id="@+id/deckFlashcard_txtCancel"
+                android:layout_toStartOf="@id/deckFlashcard_txtSave"
+                android:layout_below="@id/deckFlashcard_txtMaxCount02"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="@dimen/textView_button_spacer"
+                style="@style/Elephant.TextView.Button"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/deckFlashcard_crdBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/deckFlashcard_crdTop"
+        card_view:cardCornerRadius="@dimen/cardview_default_radius"
+        card_view:cardBackgroundColor="@color/cardColor_thickCobalt"
+        style="@style/Elephant.CardView.Background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:background="@drawable/border_sand"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/choiceRecycler"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                style="@style/Elephant.Recycler.Small"/>
+
+                <TextView
+                    android:id="@+id/choiceEmptyView"
+                    style="@style/Elephant.EmptyText.Small"/>
+
+                <include layout="@layout/fab"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
