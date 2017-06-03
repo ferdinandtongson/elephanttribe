@@ -12,22 +12,16 @@ public class _DeckBaseItem {
     public int cardCount;
 
     //creator info
-    public String userId;
-    //todo - need to add creatorId
+    public String creatorId;
     public String creator;
-    public String profilePic;
+    public String creatorPic;
 
     //deck status
-    public int cost;            //currency $, in pennies
-    public boolean isFree;      //free or premium
-    public boolean isPublic;    //public or private
+    public double cost;
+    public int accessType;
     public double rating;
-    public int active;
-    public int download;
+    public int activityCount;
+    public int downloadCount;
+    public int status;
 
-    //deck filter
-    public String subject;
-    public String school;
-    public String classId;
-    public String teacher;
 }
