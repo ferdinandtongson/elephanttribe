@@ -14,6 +14,8 @@
 
     <color name="transparent">#11FFFFFF</color>
 
+    <color name="cobalt_thick">#DDBACFDA</color>
+
     <!-- solid colors -->
     <color name="black">#000000</color>
     <color name="gray">#666666</color>
