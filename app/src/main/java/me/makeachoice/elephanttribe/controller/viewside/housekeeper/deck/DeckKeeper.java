@@ -12,13 +12,16 @@ import com.nightonke.boommenu.BoomMenuButton;
 import java.util.ArrayList;
 
 import me.makeachoice.elephanttribe.R;
+import me.makeachoice.elephanttribe.controller.manager.Boss;
+import me.makeachoice.elephanttribe.controller.modelside.butler.base.MyButler;
+import me.makeachoice.elephanttribe.controller.modelside.butler.deck.DeckButler;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.base.BaseRecyclerKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.navigation.drawer.MainDrawer;
 import me.makeachoice.elephanttribe.controller.viewside.recycler.adapter.UserDeckAdapter;
 import me.makeachoice.elephanttribe.model.item.deck.DeckItem;
+import me.makeachoice.elephanttribe.view.activity.FlashcardActivity;
 import me.makeachoice.elephanttribe.view.activity.TutorialActivity;
 import me.makeachoice.elephanttribe.view.activity.base.MyActivity;
-
 
 /**
  * DeckKeeper extends BaseRecyclerKeeper and manages the displaying of user deck information
@@ -78,7 +81,7 @@ public class DeckKeeper extends BaseRecyclerKeeper {
         initializeNavigation();
 
         //initialize shared preferences
-        mPref.initialize(mUserItem.userId);
+        mPref.requestUser(mUserItem.userId);
 
         //initialize butler
         initializeButler();
@@ -160,11 +163,11 @@ public class DeckKeeper extends BaseRecyclerKeeper {
      */
     private void addNewDeck(){
         //set deck item selected to null
-        /*mBoss.setDeckSelected(null);
+        mBoss.setDeckSelected(null);
 
         //start deck detail activity
-        Intent intent = new Intent(mActivity, DeckDetailActivity.class);
-        mActivity.startActivity(intent);*/
+        //Intent intent = new Intent(mActivity, DeckDetailActivity.class);
+        //mActivity.startActivity(intent);
     }
 
 /**************************************************************************************************/
@@ -192,20 +195,7 @@ public class DeckKeeper extends BaseRecyclerKeeper {
         //add boom menu values
 
         //add empty array list to adapter
-        //mAdapter.swapData(new ArrayList<DeckItem>());
-        DeckItem item01 = new DeckItem();
-        item01.deck = "Test01";
-        DeckItem item02 = new DeckItem();
-        item02.deck = "Test02";
-        DeckItem item03 = new DeckItem();
-        item03.deck = "Test03";
-
-        ArrayList<DeckItem> deckList = new ArrayList<>();
-        deckList.add(item01);
-        deckList.add(item02);
-        deckList.add(item03);
-
-        mAdapter.swapData(deckList);
+        mAdapter.swapData(new ArrayList<DeckItem>());
 
         //set boom menu listener
         mAdapter.setBoomMenuListener(new OnBMClickListener() {
@@ -287,8 +277,8 @@ public class DeckKeeper extends BaseRecyclerKeeper {
                 break;
             case 2:
                 //flashcard selection, start activity
-                //intent = new Intent(mActivity, FlashcardActivity.class);
-                //mActivity.startActivity(intent);
+                intent = new Intent(mActivity, FlashcardActivity.class);
+                mActivity.startActivity(intent);
                 break;
             case 3:
                 //intent = new Intent(mActivity, DeckDetailActivity.class);
@@ -309,14 +299,14 @@ public class DeckKeeper extends BaseRecyclerKeeper {
  */
 /**************************************************************************************************/
 
-    //private DeckButler mDeckButler;
+    private DeckButler mDeckButler;
 
     /*
      * void initializeButler() - initialize deck butler class
      */
     private void initializeButler(){
         //initialize deck butler
-        /*mDeckButler = new DeckButler(mActivity, mUserItem.fkey);
+        mDeckButler = new DeckButler(mActivity, mUserItem.userId);
 
         //set onLoaded listener
         mDeckButler.setOnLoadedListener(new MyButler.OnLoadedListener() {
@@ -325,7 +315,7 @@ public class DeckKeeper extends BaseRecyclerKeeper {
                 //user deck data loaded
                 userDeckLoaded(itemList);
             }
-        });*/
+        });
 
     }
 
@@ -334,7 +324,7 @@ public class DeckKeeper extends BaseRecyclerKeeper {
      */
     private void butlerDeckRequest(){
         //load deck data by user id
-        //mDeckButler.loadDeckByUserId(Boss.LOADER_DECK);
+        mDeckButler.loadByUserId(Boss.LOADER_DECK);
     }
 
     /*
@@ -343,15 +333,15 @@ public class DeckKeeper extends BaseRecyclerKeeper {
     private void userDeckLoaded(ArrayList<DeckItem> itemList){
 
         //update adapter
-        /*updateAdapter(itemList);
+        updateAdapter(itemList);
 
         //set user deck buffer
-        mBoss.setUserDeck(itemList);
+        mBoss.setDeckList(itemList);
 
         if(itemList.size() == 0){
             //show floating action button
             mFAB.show();
-        }*/
+        }
 
 
     }
