@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/choiceCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="150dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_gravity="center"
+    android:clickable="true"
+    card_view:cardElevation="0dp"
+    card_view:cardCornerRadius="7dp"
+    card_view:cardBackgroundColor="@color/cobalt">
+
+    <TextView android:id="@+id/flashcard_txtCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:paddingEnd="7dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_small"
+        />
+
+    <TextView android:id="@+id/flashcard_txtFlippedCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:paddingEnd="7dp"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_small"
+        />
+
+    <RelativeLayout android:id="@+id/flashcard_relFlashcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="7dp"
+        >
+
+        <TextView android:id="@+id/flashcard_txtFlashcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_xxLarge"
+            android:text="Flashcard"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/flashcard_relAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="7dp"
+        >
+
+        <TextView android:id="@+id/flashcard_txtTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize_xxLarge"
+            android:text="Flashcard"/>
+
+        <TextView android:id="@+id/flashcard_txtBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/flashcard_txtTop"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textSize_xLarge"
+            android:text="Answer" />
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
