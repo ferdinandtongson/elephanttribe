@@ -16,18 +16,18 @@
     <dimen name="textView_mainTitle_marginTop">75dp</dimen>
 
     <!-- TextColor -->
-    <color name="textColor_default">@color/black</color>
-    <color name="textColor_error">@color/wine</color>
-    <color name="textColor_disabled">@color/gray</color>
+    <color name="textView_colorDefault">@color/black</color>
+    <color name="textView_colorError">@color/wine</color>
+    <color name="textView_colorDisabled">@color/gray</color>
 
 
-    <!-- Styles -->
+    <!-- TextView Standard Styles -->
     <style name="Elephant.TextView" parent="ElephantTheme">
         <item name="android:padding">@dimen/textView_padding</item>
-        <item name="android:textColor">@color/textColor_default</item>
+        <item name="android:textColor">@color/textView_colorDefault</item>
     </style>
 
-
+    <!-- TextView EmptyText Style -->
     <style name="Elephant.EmptyText" parent="Elephant.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -37,7 +37,7 @@
         <item name="android:textSize">@dimen/textSize_xxLarge</item>
     </style>
 
-
+    <!-- TextView MainTitle Style -->
     <style name="Elephant.TextView.MainTitle" parent="Elephant.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -47,12 +47,30 @@
         <item name="android:textSize">@dimen/textSize_xxLarge</item>
     </style>
 
+    <!-- TextView Tutorial Style -->
     <style name="Elephant.TextView.CardTitle" parent="Elephant.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAlignment">center</item>
         <item name="android:layout_gravity">bottom</item>
         <item name="android:textSize">@dimen/textSize_small</item>
+    </style>
+
+    <!-- Deck Detail TextView component styles -->
+    <style name="Elephant.TextView.InfoTitle" parent="ElephantTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:layout_marginStart">7dp</item>
+        <item name="android:layout_marginEnd">7dp</item>
+        <item name="android:textColor">@color/textView_colorDefault</item>
+        <item name="android:textSize">@dimen/textSize_large</item>
+    </style>
+
+    <style name="Elephant.TextView.Count" parent="Elephant.TextView">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:gravity">end</item>
+        <item name="android:textSize">@dimen/textSize_xSmall</item>
     </style>
 
 </resources>
