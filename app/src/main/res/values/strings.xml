@@ -46,6 +46,8 @@
 
     <!-- Message values -->
     <string name="msg_no_network" translatable="true">No network connection! Please check your settings.</string>
+    <string name="msg_click_start" translatable="true">Click to Start</string>
+    <string name="msg_loading_flashcards" translatable="true">Loading flashcards...</string>
 
 
 
