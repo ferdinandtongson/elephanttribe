@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="editText_marginStart">7dp</dimen>
+    <dimen name="editText_marginEnd">7dp</dimen>
+    <dimen name="editText_padding">7dp</dimen>
+
+    <!-- TextColor -->
+    <color name="editText_colorDefault">@color/black</color>
+
+
+    <!-- EditText Standard Styles -->
+    <style name="Elephant.EditText" parent="ElephantTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/editText_marginStart</item>
+        <item name="android:layout_marginEnd">@dimen/editText_marginEnd</item>
+        <item name="android:padding">@dimen/editText_padding</item>
+        <item name="android:gravity">start</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textColor">@color/editText_colorDefault</item>
+        <item name="android:textSize">@dimen/textSize_medium</item>
+        <item name="android:background">@drawable/border_sand</item>
+    </style>
+
+
+
+</resources>
