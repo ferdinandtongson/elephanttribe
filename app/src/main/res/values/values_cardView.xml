@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- CardView dimensions -->
+    <dimen name="standard_cardCornerRadius">7dp</dimen>
+
+
     <!-- CardView Tutorial dimensions -->
     <dimen name="tutorial_cardView_width">105dp</dimen>
     <dimen name="tutorial_cardView_height">95dp</dimen>
@@ -10,13 +14,20 @@
     <!-- Color -->
     <color name="cardColor_default">@color/cobalt</color>
 
-    <!-- Styles -->
+    <!-- CardView Tutorial Styles -->
     <style name="Elephant.CardView.Display" parent="ElephantTheme">
         <item name="android:layout_width">@dimen/tutorial_cardView_width</item>
         <item name="android:layout_height">@dimen/tutorial_cardView_height</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:foreground">?android:attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
+    </style>
+
+    <!-- CardView Deck Info Styles -->
+    <style name="Elephant.CardView.Background" parent="ElephantTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/standard_outside_margin</item>
     </style>
 
 </resources>
