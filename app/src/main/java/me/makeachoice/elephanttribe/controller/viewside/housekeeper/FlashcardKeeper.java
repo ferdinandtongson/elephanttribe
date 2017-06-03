@@ -8,7 +8,7 @@ import android.view.View;
 
 import me.makeachoice.elephanttribe.R;
 import me.makeachoice.elephanttribe.controller.manager.Boss;
-import me.makeachoice.elephanttribe.controller.manager.base.MaidRegistry;
+import me.makeachoice.elephanttribe.controller.manager.MaidRegistry;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.base.BaseKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.maid.base.MyMaid;
 import me.makeachoice.elephanttribe.controller.viewside.navigation.toolbar.MainToolbar;
