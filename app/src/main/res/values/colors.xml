@@ -21,5 +21,6 @@
 
 
     <color name="colorToolbarBackground">@color/colorPrimaryDark</color>
+    <color name="textColor_default">@color/black</color>
 
 </resources>
