@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import me.makeachoice.elephanttribe.model.contract.flashcard.FlashcardContract;
 import me.makeachoice.elephanttribe.model.contract.user.UserContract;
 
 /**
@@ -55,6 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sql){
         sql.execSQL(UserContract.CREATE_TABLE);
+        sql.execSQL(FlashcardContract.CREATE_TABLE);
     }
 
     /*
@@ -63,6 +65,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sql, int oldVersion, int newVersion){
         dropTable(sql, UserContract.TABLE_NAME);
+        dropTable(sql, FlashcardContract.TABLE_NAME);
 
         onCreate(sql);
     }
