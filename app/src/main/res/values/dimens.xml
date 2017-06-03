@@ -15,8 +15,6 @@
     <dimen name="standard_marginBottom">55dp</dimen>
     <dimen name="standard_outside_padding">7dp</dimen>
 
-    <!-- CardView dimensions -->
-    <dimen name="standard_cardCornerRadius">7dp</dimen>
-
+    <dimen name="standard_outside_margin">16dp</dimen>
 
 </resources>
