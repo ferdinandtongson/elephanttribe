@@ -28,12 +28,12 @@ public class UserContract extends MyContract implements BaseColumns {
     public final static String REGISTRATION = "registration";
 
     public final static String CREATE_TABLE = "CREATE TABLE " +
-            UserContract.TABLE_NAME + " (" +
-            UserContract._ID + " INTEGER PRIMARY KEY, " +
-            UserContract.USERID + " TEXT NOT NULL, " +
-            UserContract.USERNAME + " TEXT NOT NULL, " +
-            UserContract.EMAIL + " TEXT, " +
-            UserContract.REGISTRATION + " TEXT);";
+            TABLE_NAME + " (" +
+            _ID + " INTEGER PRIMARY KEY, " +
+            USERID + " TEXT NOT NULL, " +
+            USERNAME + " TEXT NOT NULL, " +
+            EMAIL + " TEXT, " +
+            REGISTRATION + " TEXT);";
 
 
     //default sort order
