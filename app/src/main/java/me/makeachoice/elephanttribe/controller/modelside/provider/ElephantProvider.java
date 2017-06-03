@@ -99,19 +99,19 @@ public class ElephantProvider extends ContentProvider {
                 cursor = UserQuery.getUserById(mDBHelper, uri, projection, order);
                 break;
             case FLASHCARD_WITH_USERID:
-                cursor = FlashcardQuery.getFlashcardByUserId(mDBHelper, uri, projection, order);
+                cursor = FlashcardQuery.getByUserId(mDBHelper, uri, projection, order);
                 break;
             case FLASHCARD_WITH_DECKID:
-                cursor = FlashcardQuery.getFlashcardByDeckId(mDBHelper, uri, projection, order);
+                cursor = FlashcardQuery.getByDeckId(mDBHelper, uri, projection, order);
                 break;
             case FLASHCARD_WITH_CARDID:
-                cursor = FlashcardQuery.getFlashcardByCardId(mDBHelper, uri, projection, order);
+                cursor = FlashcardQuery.getByCardId(mDBHelper, uri, projection, order);
                 break;
             case FLASHCARD_WITH_DECK_CARD:
-                cursor = FlashcardQuery.getFlashcardByDeckIdCard(mDBHelper, uri, projection, order);
+                cursor = FlashcardQuery.getByDeckIdCard(mDBHelper, uri, projection, order);
                 break;
             case FLASHCARD_WITH_DECK_ANSWER:
-                cursor = FlashcardQuery.getFlashcardByDeckIdAnswer(mDBHelper, uri, projection, order);
+                cursor = FlashcardQuery.getByDeckIdAnswer(mDBHelper, uri, projection, order);
                 break;
             default:
                 Log.e("Choice", "ElephantProvider.query() - unknown uri: " + uri);
