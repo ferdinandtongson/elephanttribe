@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import me.makeachoice.elephanttribe.R;
 import me.makeachoice.elephanttribe.controller.manager.base.MyBoss;
+import me.makeachoice.elephanttribe.controller.viewside.housekeeper.FlashcardKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.SettingsKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.TutorialKeeper;
 import me.makeachoice.elephanttribe.controller.viewside.housekeeper.deck.DeckKeeper;
@@ -54,6 +55,9 @@ public class Boss extends MyBoss{
     private void initializeHouseKeeper(){
         DeckKeeper deckKeeper = new DeckKeeper(R.layout.activity_deck);
         registerHouseKeeper(KEEPER_DECK, deckKeeper);
+
+        FlashcardKeeper flashcardKeeper = new FlashcardKeeper(R.layout.activity_fragment);
+        registerHouseKeeper(KEEPER_FLASHCARD, flashcardKeeper);
 
         TutorialKeeper tutorialKeeper = new TutorialKeeper(R.layout.activity_tutorial);
         registerHouseKeeper(KEEPER_TUTORIAL, tutorialKeeper);
