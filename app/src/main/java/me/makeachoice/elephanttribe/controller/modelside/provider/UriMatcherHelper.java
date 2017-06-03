@@ -4,6 +4,7 @@ import android.content.UriMatcher;
 
 import java.util.HashMap;
 
+import me.makeachoice.elephanttribe.model.contract.flashcard.FlashcardContract;
 import me.makeachoice.elephanttribe.model.contract.user.UserContract;
 
 import static me.makeachoice.elephanttribe.model.contract.base.MyContract.CONTENT_AUTHORITY;
@@ -34,6 +35,9 @@ public class UriMatcherHelper {
 
         //user: range (100 - 199)
         addUserUri(matcher);
+
+        //flashcard: range (300 - 399)
+        addUriFlashcard(matcher);
 
         return matcher;
     }
@@ -76,6 +80,67 @@ public class UriMatcherHelper {
 
     }
 
+/**************************************************************************************************/
+
+
+
+
+
+
+
+/**************************************************************************************************/
+/*
+ * Flashcard Uri: (300 - 399)
+ *      void addUriFlashcard(...) - add uri values to uriMatcher object
+ */
+/**************************************************************************************************/
+
+    //card uri variables (300 - 399)
+    public static final int FLASHCARD = 300;
+    public static final int FLASHCARD_WITH_USERID = 301;
+    public static final int FLASHCARD_WITH_DECKID = 302;
+    public static final int FLASHCARD_WITH_CARDID = 303;
+    public static final int FLASHCARD_WITH_DECK_CARD = 304;
+    public static final int FLASHCARD_WITH_DECK_ANSWER = 305;
+
+    /*
+     * void addUriFlashcard(...) - add uri values to uriMatcher object
+     */
+    private static void addUriFlashcard(UriMatcher matcher){
+        String path = FlashcardContract.PATH;
+
+        //"content://CONTENT_AUTHORITY/flashcard
+        matcher.addURI(CONTENT_AUTHORITY, path, FLASHCARD);
+        mContentMap.put(FLASHCARD, FlashcardContract.CONTENT_TYPE);
+
+        //"content://CONTENT_AUTHORITY/flashcard/[userId]
+        String userIdPath = path + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, userIdPath, FLASHCARD_WITH_USERID);
+        mContentMap.put(FLASHCARD_WITH_USERID, FlashcardContract.CONTENT_TYPE);
+
+        //"content://CONTENT_AUTHORITY/flashcard/[userId]/deckId/[deckId]
+        String deckIdPath = userIdPath + "/" + FlashcardContract.DECKID + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, deckIdPath, FLASHCARD_WITH_DECKID);
+        mContentMap.put(FLASHCARD_WITH_DECKID, FlashcardContract.CONTENT_TYPE);
+
+        //"content://CONTENT_AUTHORITY/flashcard/[userId]/cardId/[cardId]
+        String cardIdPath = userIdPath + "/" + FlashcardContract.CARDID + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, cardIdPath, FLASHCARD_WITH_CARDID);
+        mContentMap.put(FLASHCARD_WITH_CARDID, FlashcardContract.CONTENT_ITEM_TYPE);
+
+        //"content://CONTENT_AUTHORITY/flashcard/[userId]/deckId/[deckId]/card/[card]
+        String deckIdCardPath = userIdPath + "/" + FlashcardContract.DECKID + "/*/" +
+                FlashcardContract.CARD + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, deckIdCardPath, FLASHCARD_WITH_DECK_CARD);
+        mContentMap.put(FLASHCARD_WITH_DECK_CARD, FlashcardContract.CONTENT_ITEM_TYPE);
+
+        //"content://CONTENT_AUTHORITY/flashcard/[userId]/deckId/[deckId]/answer/[answer]
+        String deckIdAnswerPath = userIdPath + "/" + FlashcardContract.DECKID + "/*/" +
+                FlashcardContract.ANSWER + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, deckIdAnswerPath, FLASHCARD_WITH_DECK_ANSWER);
+        mContentMap.put(FLASHCARD_WITH_DECK_ANSWER, FlashcardContract.CONTENT_TYPE);
+
+    }
 
 /**************************************************************************************************/
 

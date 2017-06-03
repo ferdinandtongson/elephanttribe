@@ -8,9 +8,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
 
+import me.makeachoice.elephanttribe.controller.modelside.query.flashcard.FlashcardQuery;
 import me.makeachoice.elephanttribe.controller.modelside.query.user.UserQuery;
 import me.makeachoice.elephanttribe.model.db.DBHelper;
 
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.FLASHCARD;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.FLASHCARD_WITH_CARDID;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.FLASHCARD_WITH_DECKID;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.FLASHCARD_WITH_DECK_ANSWER;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.FLASHCARD_WITH_DECK_CARD;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.FLASHCARD_WITH_USERID;
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.USER;
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.USER_WITH_ID;
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.dbUriMatcher;
@@ -91,6 +98,21 @@ public class ElephantProvider extends ContentProvider {
             case USER_WITH_ID:
                 cursor = UserQuery.getUserById(mDBHelper, uri, projection, order);
                 break;
+            case FLASHCARD_WITH_USERID:
+                cursor = FlashcardQuery.getFlashcardByUserId(mDBHelper, uri, projection, order);
+                break;
+            case FLASHCARD_WITH_DECKID:
+                cursor = FlashcardQuery.getFlashcardByDeckId(mDBHelper, uri, projection, order);
+                break;
+            case FLASHCARD_WITH_CARDID:
+                cursor = FlashcardQuery.getFlashcardByCardId(mDBHelper, uri, projection, order);
+                break;
+            case FLASHCARD_WITH_DECK_CARD:
+                cursor = FlashcardQuery.getFlashcardByDeckIdCard(mDBHelper, uri, projection, order);
+                break;
+            case FLASHCARD_WITH_DECK_ANSWER:
+                cursor = FlashcardQuery.getFlashcardByDeckIdAnswer(mDBHelper, uri, projection, order);
+                break;
             default:
                 Log.e("Choice", "ElephantProvider.query() - unknown uri: " + uri);
                 throw new UnsupportedOperationException("Unkown uri: " + uri);
@@ -127,6 +149,9 @@ public class ElephantProvider extends ContentProvider {
         switch(match){
             case USER:
                 returnUri = UserQuery.insert(db, values);
+                break;
+            case FLASHCARD:
+                returnUri = FlashcardQuery.insert(db, values);
                 break;
             default:
                 Log.e("Choice", "ElephantProvider.insert() - Unknown uri: " + uri);
@@ -167,6 +192,9 @@ public class ElephantProvider extends ContentProvider {
             case USER:
                 rowsDeleted = UserQuery.delete(db, uri, selection, args);
                 break;
+            case FLASHCARD:
+                rowsDeleted = FlashcardQuery.delete(db, uri, selection, args);
+                break;
             default:
                 Log.e("Choice", "ElephantProvider.delete() - Unknown uri: " + uri);
                 throw new UnsupportedOperationException("Unkown uri: " + uri);
@@ -205,6 +233,9 @@ public class ElephantProvider extends ContentProvider {
         switch(match){
             case USER:
                 rowsUpdated = UserQuery.update(db, uri, values, selection, args);
+                break;
+            case FLASHCARD:
+                rowsUpdated = FlashcardQuery.update(db, uri, values, selection, args);
                 break;
             default:
                 Log.e("Choice", "ElephantProvider.update() - Unknown uri: " + uri);
