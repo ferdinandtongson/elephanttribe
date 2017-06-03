@@ -1,8 +1,9 @@
-package me.makeachoice.elephanttribe.controller.manager.base;
+package me.makeachoice.elephanttribe.controller.manager;
 
 import java.util.HashMap;
 
 import me.makeachoice.elephanttribe.controller.viewside.maid.base.MyMaid;
+import me.makeachoice.elephanttribe.controller.viewside.maid.deck.DeckInfoMaid;
 import me.makeachoice.elephanttribe.controller.viewside.maid.flashcard.FlashcardMaid;
 
 /**************************************************************************************************/
@@ -103,6 +104,14 @@ public class MaidRegistry {
  * Deck Detail Maids:
  */
 /**************************************************************************************************/
+
+    public DeckInfoMaid initializeDeckInfo(String maidName, int layoutId){
+        DeckInfoMaid maid = new DeckInfoMaid(maidName, layoutId);
+        registerMaid(maidName, maid);
+
+        return maid;
+    }
+
 
 
 /**************************************************************************************************/
