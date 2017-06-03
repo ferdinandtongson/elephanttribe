@@ -19,6 +19,7 @@ import me.makeachoice.elephanttribe.controller.viewside.housekeeper.base.BaseRec
 import me.makeachoice.elephanttribe.controller.viewside.navigation.drawer.MainDrawer;
 import me.makeachoice.elephanttribe.controller.viewside.recycler.adapter.UserDeckAdapter;
 import me.makeachoice.elephanttribe.model.item.deck.DeckItem;
+import me.makeachoice.elephanttribe.view.activity.DeckDetailActivity;
 import me.makeachoice.elephanttribe.view.activity.FlashcardActivity;
 import me.makeachoice.elephanttribe.view.activity.TutorialActivity;
 import me.makeachoice.elephanttribe.view.activity.base.MyActivity;
@@ -166,8 +167,8 @@ public class DeckKeeper extends BaseRecyclerKeeper {
         mBoss.setDeckSelected(null);
 
         //start deck detail activity
-        //Intent intent = new Intent(mActivity, DeckDetailActivity.class);
-        //mActivity.startActivity(intent);
+        Intent intent = new Intent(mActivity, DeckDetailActivity.class);
+        mActivity.startActivity(intent);
     }
 
 /**************************************************************************************************/
@@ -269,8 +270,8 @@ public class DeckKeeper extends BaseRecyclerKeeper {
             //
             case 0:
                 //edit deck selection, start activity
-                //intent = new Intent(mActivity, DeckDetailActivity.class);
-                //mActivity.startActivity(intent);
+                intent = new Intent(mActivity, DeckDetailActivity.class);
+                mActivity.startActivity(intent);
                 break;
             case 1:
                 //leitner method
