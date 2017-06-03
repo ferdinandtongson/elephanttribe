@@ -13,6 +13,7 @@
 
     <!-- Color -->
     <color name="cardColor_default">@color/cobalt</color>
+    <color name="cardColor_thickCobalt">@color/cobalt_thick</color>
 
     <!-- CardView Tutorial Styles -->
     <style name="Elephant.CardView.Display" parent="ElephantTheme">
