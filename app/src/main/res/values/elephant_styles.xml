@@ -37,6 +37,14 @@
         <item name="android:focusable">true</item>
     </style>
 
+    <style name="Elephant.Recycler.Small" parent="ElephantTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">@dimen/standard_outside_padding</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:focusable">true</item>
+    </style>
+
     <style name="Elephant.Drawer" parent="ElephantTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
