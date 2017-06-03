@@ -33,6 +33,11 @@
     <string name="bm_flashcard_subtitle" translatable="true">(short-term memory builder)</string>
     <string name="bm_stats_subtitle" translatable="true">(flashcard and leitner statistics)</string>
 
+    <!-- Navigation Menu Names -->
+    <string name="nav_detail_item01" translatable="false">@string/info</string>
+    <string name="nav_detail_item02" translatable="false">@string/school</string>
+    <string name="nav_detail_item03" translatable="false">@string/flashcards</string>
+
 
     <!-- EmptyList Messages -->
     <string name="emptyList_deck" translatable="true">No Decks</string>
@@ -48,20 +53,31 @@
     <string name="msg_no_network" translatable="true">No network connection! Please check your settings.</string>
     <string name="msg_click_start" translatable="true">Click to Start</string>
     <string name="msg_loading_flashcards" translatable="true">Loading flashcards...</string>
+    <string name="msg_add_description" translatable="true">Add Description</string>
+
+    <!-- Tag messages -->
+    <string name="msg_no_tags" translatable="true">- No Tags -</string>
+
 
 
 
     <!-- Dictionary -->
     <string name="anonymous" translatable="true">Anonymous</string>
+    <string name="deck" translatable="true">Deck</string>
     <string name="decks" translatable="true">Decks</string>
+    <string name="description" translatable="true">Description</string>
     <string name="edit" translatable="true">Edit</string>
     <string name="flashcards" translatable="true">Flashcards</string>
     <string name="help" translatable="true">Help</string>
+    <string name="info" translatable="true">Info</string>
     <string name="market" translatable="true">Market</string>
+    <string name="name" translatable="true">Name</string>
+    <string name="school" translatable="true">School</string>
     <string name="stats" translatable="true">Stats</string>
     <string name="settings" translatable="true">Settings</string>
     <string name="sign_in" translatable="true">Sign In</string>
     <string name="sign_out" translatable="true">Sign Out</string>
+    <string name="tags" translatable="true">Tags</string>
     <string name="tutorials" translatable="true">Tutorials</string>
 
 
