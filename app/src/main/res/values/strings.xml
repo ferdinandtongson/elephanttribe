@@ -55,6 +55,12 @@
     <string name="msg_loading_flashcards" translatable="true">Loading flashcards...</string>
     <string name="msg_add_description" translatable="true">Add Description</string>
 
+    <!-- Input Error Messages -->
+    <string name="msg_invalid_character" translatable="true">Invalid Character</string>
+    <string name="msg_exceed_max" translatable="true">Exceed Maximum Characters</string>
+    <string name="msg_invalid_blank" translatable="true">cannot be blank</string>
+    <string name="msg_already_exists" translatable="true">already exists</string>
+
     <!-- Tag messages -->
     <string name="msg_no_tags" translatable="true">- No Tags -</string>
 
@@ -63,6 +69,7 @@
 
     <!-- Dictionary -->
     <string name="anonymous" translatable="true">Anonymous</string>
+    <string name="cancel" translatable="true">Cancel</string>
     <string name="deck" translatable="true">Deck</string>
     <string name="decks" translatable="true">Decks</string>
     <string name="description" translatable="true">Description</string>
@@ -72,6 +79,7 @@
     <string name="info" translatable="true">Info</string>
     <string name="market" translatable="true">Market</string>
     <string name="name" translatable="true">Name</string>
+    <string name="save" translatable="true">Save</string>
     <string name="school" translatable="true">School</string>
     <string name="stats" translatable="true">Stats</string>
     <string name="settings" translatable="true">Settings</string>
