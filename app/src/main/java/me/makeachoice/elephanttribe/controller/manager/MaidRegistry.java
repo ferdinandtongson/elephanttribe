@@ -3,6 +3,7 @@ package me.makeachoice.elephanttribe.controller.manager;
 import java.util.HashMap;
 
 import me.makeachoice.elephanttribe.controller.viewside.maid.base.MyMaid;
+import me.makeachoice.elephanttribe.controller.viewside.maid.deck.DeckFlashcardMaid;
 import me.makeachoice.elephanttribe.controller.viewside.maid.deck.DeckInfoMaid;
 import me.makeachoice.elephanttribe.controller.viewside.maid.flashcard.FlashcardMaid;
 
@@ -112,6 +113,12 @@ public class MaidRegistry {
         return maid;
     }
 
+    public DeckFlashcardMaid initializeDeckFlashcard(String maidName, int layoutId){
+        DeckFlashcardMaid maid = new DeckFlashcardMaid(maidName, layoutId);
+        registerMaid(maidName, maid);
+
+        return maid;
+    }
 
 
 /**************************************************************************************************/
