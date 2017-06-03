@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/choiceCardView"
+    card_view:cardCornerRadius="@dimen/standard_cardCornerRadius"
+    card_view:cardBackgroundColor="@color/cardColor_default"
+    style="@style/Elephant.CardView.Background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView android:id="@+id/deckInfo_txtName"
+            android:text="@string/name"
+            style="@style/Elephant.TextView.InfoTitle"/>
+
+        <TextView android:id="@+id/deckInfo_edtName"
+            android:layout_below="@id/deckInfo_txtName"
+            android:maxLines="1"
+            android:maxLength="@integer/deck_name_max_length"
+            android:hint="@string/name"
+            style="@style/Elephant.EditText"/>
+
+        <TextView android:id="@+id/deckInfo_txtDescription"
+            android:layout_below="@id/deckInfo_edtName"
+            android:text="@string/description"
+            style="@style/Elephant.TextView.InfoTitle"/>
+
+        <TextView android:id="@+id/deckInfo_edtDescription"
+            android:layout_below="@id/deckInfo_txtDescription"
+            android:minLines="4"
+            android:maxLines="4"
+            android:maxLength="@integer/deck_description_max_length"
+            android:hint="@string/msg_add_description"
+            style="@style/Elephant.EditText"/>
+
+        <TextView android:id="@+id/deckInfo_txtTag"
+            android:layout_below="@id/deckInfo_edtDescription"
+            android:text="@string/tags"
+            style="@style/Elephant.TextView.InfoTitle"/>
+
+        <TextView android:id="@+id/deckInfo_txtTagInfo"
+            android:layout_width="match_parent"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_below="@id/deckInfo_txtTag"
+            android:maxLines="1"
+            style="@style/Elephant.EditText"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
