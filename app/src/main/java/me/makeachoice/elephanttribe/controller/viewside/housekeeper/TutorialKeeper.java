@@ -68,7 +68,7 @@ public class TutorialKeeper extends BaseKeeper {
 
         initializeNavigation();
 
-        mPref.initialize(mUserItem.userId);
+        mPref.requestUser(mUserItem.userId);
 
         if(mPref.getFirstTime()){
             //todo - display welcome message for anonymous user

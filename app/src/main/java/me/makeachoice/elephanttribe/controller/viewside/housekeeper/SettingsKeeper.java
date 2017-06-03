@@ -58,7 +58,7 @@ public class SettingsKeeper extends BaseKeeper {
 
         initializeNavigation();
 
-        mPref.initialize(mUserItem.userId);
+        mPref.requestUser(mUserItem.userId);
 
     }
 

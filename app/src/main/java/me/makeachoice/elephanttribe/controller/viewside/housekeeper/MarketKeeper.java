@@ -58,7 +58,7 @@ public class MarketKeeper extends BaseKeeper {
 
         initializeNavigation();
 
-        mPref.initialize(mUserItem.userId);
+        mPref.requestUser(mUserItem.userId);
 
     }
 
