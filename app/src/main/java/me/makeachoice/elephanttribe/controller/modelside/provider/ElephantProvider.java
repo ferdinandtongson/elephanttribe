@@ -9,11 +9,17 @@ import android.net.Uri;
 import android.util.Log;
 
 import me.makeachoice.elephanttribe.controller.modelside.query.deck.DeckQuery;
+import me.makeachoice.elephanttribe.controller.modelside.query.deck.DeckTagQuery;
 import me.makeachoice.elephanttribe.controller.modelside.query.flashcard.FlashcardQuery;
 import me.makeachoice.elephanttribe.controller.modelside.query.user.UserQuery;
 import me.makeachoice.elephanttribe.model.db.DBHelper;
 
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_TAG;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_TAG_WITH_DECKID;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_TAG_WITH_DECK_TAG;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_TAG_WITH_TAG;
+import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_TAG_WITH_USERID;
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_WITH_DECKID;
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_WITH_STATUS;
 import static me.makeachoice.elephanttribe.controller.modelside.provider.UriMatcherHelper.DECK_WITH_USERID;
@@ -112,6 +118,18 @@ public class ElephantProvider extends ContentProvider {
             case DECK_WITH_STATUS:
                 cursor = DeckQuery.getByStatus(mDBHelper, uri, projection, order);
                 break;
+            case DECK_TAG_WITH_USERID:
+                cursor = DeckTagQuery.getByUserId(mDBHelper, uri, projection, order);
+                break;
+            case DECK_TAG_WITH_DECKID:
+                cursor = DeckTagQuery.getByDeckId(mDBHelper, uri, projection, order);
+                break;
+            case DECK_TAG_WITH_TAG:
+                cursor = DeckTagQuery.getByTag(mDBHelper, uri, projection, order);
+                break;
+            case DECK_TAG_WITH_DECK_TAG:
+                cursor = DeckTagQuery.getByDeckTag(mDBHelper, uri, projection, order);
+                break;
             case FLASHCARD_WITH_USERID:
                 cursor = FlashcardQuery.getByUserId(mDBHelper, uri, projection, order);
                 break;
@@ -167,6 +185,9 @@ public class ElephantProvider extends ContentProvider {
             case DECK:
                 returnUri = DeckQuery.insert(db, values);
                 break;
+            case DECK_TAG:
+                returnUri = DeckTagQuery.insert(db, values);
+                break;
             case FLASHCARD:
                 returnUri = FlashcardQuery.insert(db, values);
                 break;
@@ -212,6 +233,9 @@ public class ElephantProvider extends ContentProvider {
             case DECK:
                 rowsDeleted = DeckQuery.delete(db, uri, selection, args);
                 break;
+            case DECK_TAG:
+                rowsDeleted = DeckTagQuery.delete(db, uri, selection, args);
+                break;
             case FLASHCARD:
                 rowsDeleted = FlashcardQuery.delete(db, uri, selection, args);
                 break;
@@ -256,6 +280,9 @@ public class ElephantProvider extends ContentProvider {
                 break;
             case DECK:
                 rowsUpdated = DeckQuery.update(db, uri, values, selection, args);
+                break;
+            case DECK_TAG:
+                rowsUpdated = DeckTagQuery.update(db, uri, values, selection, args);
                 break;
             case FLASHCARD:
                 rowsUpdated = FlashcardQuery.update(db, uri, values, selection, args);

@@ -5,6 +5,7 @@ import android.content.UriMatcher;
 import java.util.HashMap;
 
 import me.makeachoice.elephanttribe.model.contract.deck.DeckContract;
+import me.makeachoice.elephanttribe.model.contract.deck.DeckTagContract;
 import me.makeachoice.elephanttribe.model.contract.flashcard.FlashcardContract;
 import me.makeachoice.elephanttribe.model.contract.user.UserContract;
 
@@ -101,6 +102,13 @@ public class UriMatcherHelper {
     public static final int DECK_WITH_DECKID = 202;
     public static final int DECK_WITH_STATUS = 203;
 
+    //deck tag uri variables
+    public static final int DECK_TAG = 220;
+    public static final int DECK_TAG_WITH_USERID = 221;
+    public static final int DECK_TAG_WITH_DECKID = 222;
+    public static final int DECK_TAG_WITH_TAG = 223;
+    public static final int DECK_TAG_WITH_DECK_TAG = 224;
+
     /*
      * void addDeckUri(...) - add uri values to uriMatcher object
      */
@@ -125,6 +133,38 @@ public class UriMatcherHelper {
         String statusPath = userIdPath + "/" + DeckContract.STATUS + "/*";
         matcher.addURI(CONTENT_AUTHORITY, statusPath, DECK_WITH_STATUS);
         mContentMap.put(DECK_WITH_STATUS, DeckContract.CONTENT_TYPE);
+
+
+        String pathTag = DeckTagContract.PATH;
+
+        //"content://CONTENT_AUTHORITY/deckTag
+        matcher.addURI(CONTENT_AUTHORITY, pathTag, DECK_TAG);
+        mContentMap.put(DECK_TAG, DeckTagContract.CONTENT_TYPE);
+
+        //"content://CONTENT_AUTHORITY/deckTag/userId/[userId]
+        String tagUserIdPath = pathTag + "/" + DeckTagContract.USERID + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, tagUserIdPath, DECK_TAG_WITH_USERID);
+        mContentMap.put(DECK_TAG_WITH_USERID, DeckTagContract.CONTENT_TYPE);
+
+        //"content://CONTENT_AUTHORITY/deckTag/[userId]/deckId/[deckId]
+        String tagDeckIdPath = pathTag + "/*/" +
+                DeckTagContract.DECKID + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, tagDeckIdPath, DECK_TAG_WITH_DECKID);
+        mContentMap.put(DECK_TAG_WITH_DECKID, DeckTagContract.CONTENT_TYPE);
+
+        //"content://CONTENT_AUTHORITY/deckTag/[userId]/tag/[tag]
+        String deckTagFkeyPath = pathTag + "/*/" +
+                DeckTagContract.TAG + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, deckTagFkeyPath, DECK_TAG_WITH_TAG);
+        mContentMap.put(DECK_TAG_WITH_TAG, DeckTagContract.CONTENT_TYPE);
+
+        //"content://CONTENT_AUTHORITY/deckTag/[[userId]/deckId/[deckId]/tag/[tag]
+        String tagDeckTagPath = pathTag + "/*/" +
+                DeckTagContract.DECKID + "/*/" +
+                DeckTagContract.TAG + "/*";
+        matcher.addURI(CONTENT_AUTHORITY, tagDeckTagPath, DECK_TAG_WITH_DECK_TAG);
+        mContentMap.put(DECK_TAG_WITH_DECK_TAG, DeckTagContract.CONTENT_ITEM_TYPE);
+
 
     }
 
