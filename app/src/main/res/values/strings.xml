@@ -64,8 +64,10 @@
 
     <!-- Tag messages -->
     <string name="msg_no_tags" translatable="true">- No Tags -</string>
-
-
+    <string name="msg_tag_blank" translatable="true">Tag is blank</string>
+    <string name="msg_tag_duplicate" translatable="true">Duplicate tag</string>
+    <string name="msg_tag_add" translatable="true">Add keyword tags</string>
+    <string name="msg_no_defined_tags" translatable="true">No defined tags</string>
 
 
     <!-- Dictionary -->
@@ -74,6 +76,7 @@
     <string name="answer" translatable="true">Answer</string>
     <string name="cancel" translatable="true">Cancel</string>
     <string name="clear" translatable="true">Clear</string>
+    <string name="close" translatable="true">Close</string>
     <string name="deck" translatable="true">Deck</string>
     <string name="decks" translatable="true">Decks</string>
     <string name="delete" translatable="true">Delete</string>
