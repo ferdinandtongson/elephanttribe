@@ -107,12 +107,16 @@ public class Boss extends MyBoss{
     private DeckItem mDeckSelected;
     private ArrayList<DeckItem> mDeckList;
 
+    public DeckItem getDeckSelected(){
+        return mDeckSelected;
+    }
+
     public void setDeckSelected(DeckItem deck){
         mDeckSelected = deck;
     }
 
-    public DeckItem getDeckSelected(){
-        return mDeckSelected;
+    public ArrayList<DeckItem> getDeckList(){
+        return mDeckList;
     }
 
     public void setDeckList(ArrayList<DeckItem> deckList){
@@ -124,8 +128,16 @@ public class Boss extends MyBoss{
         mDeckList.addAll(deckList);
     }
 
-    public ArrayList<DeckItem> getDeckList(){
-        return mDeckList;
+    public void addToDeckList(DeckItem item){
+        if(mDeckList == null){
+            mDeckList = new ArrayList<>();
+        }
+
+        mDeckList.add(item);
+    }
+
+    public void updateDeckListItem(int index, DeckItem item){
+        mDeckList.set(index, item);
     }
 
 /**************************************************************************************************/
