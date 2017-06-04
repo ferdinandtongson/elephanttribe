@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="285dp"
+        android:src="@drawable/cobalt_linear"
+        android:background="@drawable/elephant01c"/>
+
+    <EditText android:id="@+id/diaTagInput_edtValue"
+        android:layout_marginTop="7dp"
+        android:maxLines="1"
+        style="@style/Elephant.EditText"/>
+
+    <TextView android:id="@+id/diaTagInput_txtMaxCount"
+        android:layout_below="@id/diaTagInput_edtValue"
+        style="@style/Elephant.TextView.Count"/>
+
+    <TextView android:id="@+id/diaTagInput_txtAdd"
+        android:layout_below="@id/diaTagInput_txtMaxCount"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="7dp"
+        android:text="@string/add"
+        style="@style/Elephant.TextView.Button"/>
+
+    <TextView android:id="@+id/diaTagInput_txtClose"
+        android:layout_toStartOf="@id/diaTagInput_txtAdd"
+        android:layout_below="@id/diaTagInput_txtMaxCount"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="@dimen/textView_button_spacer"
+        android:text="@string/close"
+        style="@style/Elephant.TextView.Button"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/diaTagInput_txtAdd"
+        android:layout_marginBottom="7dp">
+
+        <TextView android:id="@+id/diaTagInput_txtTitleList"
+            android:layout_marginTop="3dp"
+            android:maxLines="1"
+            android:text="@string/tags"
+            style="@style/Elephant.TextView.InfoTitle"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/choiceRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/diaTagInput_txtTitleList"
+            android:padding="@dimen/standard_padding"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="0dp"
+            android:focusable="true"
+            android:scrollbars="vertical"
+            android:background="@drawable/border_sand"
+            />
+
+        <TextView
+            android:id="@+id/choiceEmptyView"
+            style="@style/Elephant.EmptyText.Small"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>
