@@ -14,6 +14,7 @@ public interface iCodes {
 
     final static int LOADER_USER = 1000;
     final static int LOADER_DECK = 1100;
+    final static int LOADER_DECK_TAG = 1101;
     final static int LOADER_FLASHCARD = 1200;
 
 /**************************************************************************************************/
