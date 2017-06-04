@@ -16,5 +16,6 @@
     <dimen name="standard_outside_padding">7dp</dimen>
 
     <dimen name="standard_outside_margin">16dp</dimen>
+    <dimen name="standard_padding">7dp</dimen>
 
 </resources>
