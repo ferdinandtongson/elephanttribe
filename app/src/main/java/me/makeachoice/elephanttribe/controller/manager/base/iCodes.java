@@ -48,12 +48,12 @@ public interface iCodes {
  */
 /**************************************************************************************************/
 
-    final static int MODE_FLASHCARD_SIMPLE = 1;
-    final static int MODE_FLASHCARD_CHOICE = 2;
+    final static int FLASHCARD_MODE_SIMPLE = 1;
+    final static int FLASHCARD_MODE_CHOICE = 2;
 
-    final static int DISTRACTOR_TYPE_FLASHCARD = 1;
-    final static int DISTRACTOR_TYPE_ANSWER = 2;
-    final static int DISTRACTOR_TYPE_RANDOM = 3;
+    final static int FLASHCARD_DISPLAY_CARD = 1;
+    final static int FLASHCARD_DISPLAY_ANSWER = 2;
+    final static int FLASHCARD_DISPLAY_RANDOM = 3;
 
 /**************************************************************************************************/
 
