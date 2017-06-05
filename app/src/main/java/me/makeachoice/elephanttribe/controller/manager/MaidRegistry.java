@@ -5,6 +5,7 @@ import java.util.HashMap;
 import me.makeachoice.elephanttribe.controller.viewside.maid.base.MyMaid;
 import me.makeachoice.elephanttribe.controller.viewside.maid.deck.DeckFlashcardMaid;
 import me.makeachoice.elephanttribe.controller.viewside.maid.deck.DeckInfoMaid;
+import me.makeachoice.elephanttribe.controller.viewside.maid.flashcard.FlashcardChoiceMaid;
 import me.makeachoice.elephanttribe.controller.viewside.maid.flashcard.FlashcardMaid;
 
 /**************************************************************************************************/
@@ -130,8 +131,13 @@ public class MaidRegistry {
  */
 /**************************************************************************************************/
 
-    public void initializeFlashcardMaid(String maidName, int layoutId, String userId){
-        FlashcardMaid maid = new FlashcardMaid(maidName, layoutId, userId);
+    public void initializeFlashcardMaid(String maidName, int layoutId){
+        FlashcardMaid maid = new FlashcardMaid(maidName, layoutId);
+        registerMaid(maidName, maid);
+    }
+
+    public void initializeFlashcardChoiceMaid(String maidName, int layoutId){
+        FlashcardChoiceMaid maid = new FlashcardChoiceMaid(maidName, layoutId);
         registerMaid(maidName, maid);
     }
 
