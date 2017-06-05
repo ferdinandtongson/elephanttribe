@@ -20,17 +20,13 @@ public class MainPreference {
     //PREF_FIRST_TIME - first time login
     private final static String PREF_FIRST_TIME = "firstTime";
 
-    //Flashcard Preference codes
-    private final static String PREF_CARD_MODE = "flashcardMode";
-    private final static String PREF_CARD_RANDOMIZED = "flashcardRandomized";
-    private final static String PREF_CARD_ANIM_DURATION = "animationDuration";
-
 
     private SharedPreferences mPref;
     private Boss mBoss;
     private String mUserId;
 
-    private int mCardAnimDuration;
+    private int mCardFlipDuration;
+    private int mCardCorrectDuration;
 
 /**************************************************************************************************/
 
@@ -44,7 +40,8 @@ public class MainPreference {
     public MainPreference(Boss boss){
         mBoss = boss;
 
-        mCardAnimDuration = mBoss.getResources().getInteger(R.integer.card_flip_time_full);
+        mCardFlipDuration = mBoss.getResources().getInteger(R.integer.card_flip_time_full);
+        mCardCorrectDuration = 2000;
     }
 
 /**************************************************************************************************/
@@ -67,6 +64,11 @@ public class MainPreference {
         if(!mPref.contains(mUserId)){
             setPreference(mUserId, userId);
             setPreference(PREF_FIRST_TIME, true);
+            setPreference(PREF_CARD_MODE, Boss.FLASHCARD_MODE_SIMPLE);
+            setPreference(PREF_CARD_RANDOMIZED, true);
+            setPreference(PREF_CARD_FLIP_DURATION, mCardFlipDuration);
+            setPreference(PREF_CARD_CORRECT_DURATION, mCardCorrectDuration);
+            setPreference(PREF_CARD_DISPLAY, Boss.FLASHCARD_DISPLAY_CARD);
         }
     }
 
@@ -99,8 +101,17 @@ public class MainPreference {
  */
 /**************************************************************************************************/
 
+    //Flashcard Preference codes
+    private final static String PREF_CARD_MODE = "flashcardMode";
+    private final static String PREF_CARD_RANDOMIZED = "flashcardRandomized";
+    private final static String PREF_CARD_FLIP_DURATION = "animationDuration";
+
+    private final static String PREF_CARD_CORRECT_DURATION = "flashcardCorrectDuration";
+    private final static String PREF_CARD_DISPLAY = "flashcardDisplay";
+
+
     public int getFlashcardMode(){
-        return mPref.getInt(PREF_CARD_MODE, Boss.MODE_FLASHCARD_SIMPLE);
+        return mPref.getInt(PREF_CARD_MODE, Boss.FLASHCARD_MODE_SIMPLE);
     }
 
     public void setFlashcardMode(int mode){
@@ -115,12 +126,26 @@ public class MainPreference {
         setPreference(PREF_CARD_RANDOMIZED, isRandom);
     }
 
-    public long getAnimationDuration(){
-        return mPref.getLong(PREF_CARD_ANIM_DURATION, mCardAnimDuration);
+    public long getFlashcardFlipDuration(){
+        return mPref.getLong(PREF_CARD_FLIP_DURATION, mCardFlipDuration);
     }
 
-    public void setFlashcardAnimationDuration(int millisec){
-        setPreference(PREF_CARD_ANIM_DURATION, millisec);
+    public void setFlashcardFlipDuration(int millisec){
+        setPreference(PREF_CARD_FLIP_DURATION, millisec);
+    }
+
+    public long getFlashcardCorrectDuration(){
+        return mPref.getLong(PREF_CARD_CORRECT_DURATION, mCardCorrectDuration);
+    }
+
+    public void setFlashcardCorrectDuration(int millisec){
+        setPreference(PREF_CARD_CORRECT_DURATION, millisec);
+    }
+
+    public int getFlashcardDisplayType(){ return mPref.getInt(PREF_CARD_DISPLAY, Boss.FLASHCARD_DISPLAY_CARD); }
+
+    public void setFlashcardDisplayType(){
+        setPreference(PREF_CARD_DISPLAY, Boss.FLASHCARD_DISPLAY_CARD);
     }
 
 /**************************************************************************************************/
