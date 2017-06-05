@@ -36,7 +36,7 @@ public interface iServerName {
 
     //flashcard maids
     final static String MAID_FLASHCARD_SIMPLE = "mFlashcardSimple";
-
+    final static String MAID_FLASHCARD_CHOICE = "mFlashcardChoice";
 
 /**************************************************************************************************/
 
