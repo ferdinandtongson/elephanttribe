@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import me.makeachoice.elephanttribe.model.contract.deck.DeckContract;
+import me.makeachoice.elephanttribe.model.contract.deck.DeckScoreContract;
 import me.makeachoice.elephanttribe.model.contract.deck.DeckTagContract;
 import me.makeachoice.elephanttribe.model.contract.flashcard.FlashcardContract;
 import me.makeachoice.elephanttribe.model.contract.user.UserContract;
@@ -60,6 +61,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sql.execSQL(UserContract.CREATE_TABLE);
         sql.execSQL(DeckContract.CREATE_TABLE);
         sql.execSQL(DeckTagContract.CREATE_TABLE);
+        sql.execSQL(DeckScoreContract.CREATE_TABLE);
         sql.execSQL(FlashcardContract.CREATE_TABLE);
     }
 
@@ -71,6 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
         dropTable(sql, UserContract.TABLE_NAME);
         dropTable(sql, DeckContract.TABLE_NAME);
         dropTable(sql, DeckTagContract.TABLE_NAME);
+        dropTable(sql, DeckScoreContract.TABLE_NAME);
         dropTable(sql, FlashcardContract.TABLE_NAME);
 
         onCreate(sql);
