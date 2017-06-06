@@ -25,8 +25,8 @@ public class MainPreference {
     private Boss mBoss;
     private String mUserId;
 
-    private int mCardFlipDuration;
-    private int mCardCorrectDuration;
+    private long mCardFlipDuration;
+    private long mCardCorrectDuration;
 
 /**************************************************************************************************/
 
@@ -130,7 +130,7 @@ public class MainPreference {
         return mPref.getLong(PREF_CARD_FLIP_DURATION, mCardFlipDuration);
     }
 
-    public void setFlashcardFlipDuration(int millisec){
+    public void setFlashcardFlipDuration(long millisec){
         setPreference(PREF_CARD_FLIP_DURATION, millisec);
     }
 
@@ -138,7 +138,7 @@ public class MainPreference {
         return mPref.getLong(PREF_CARD_CORRECT_DURATION, mCardCorrectDuration);
     }
 
-    public void setFlashcardCorrectDuration(int millisec){
+    public void setFlashcardCorrectDuration(long millisec){
         setPreference(PREF_CARD_CORRECT_DURATION, millisec);
     }
 
@@ -192,6 +192,18 @@ public class MainPreference {
         //commit change
         editor.commit();
     }
+
+    public void setPreference(String key, long value){
+        //get shared preferences editor
+        SharedPreferences.Editor editor = mBoss.getSharedPreferences(mUserId, Context.MODE_PRIVATE).edit();
+
+        //update value
+        editor.putLong(key, value);
+
+        //commit change
+        editor.commit();
+    }
+
 
 /**************************************************************************************************/
 
