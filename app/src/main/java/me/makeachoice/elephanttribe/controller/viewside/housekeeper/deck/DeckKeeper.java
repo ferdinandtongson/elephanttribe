@@ -259,8 +259,10 @@ public class DeckKeeper extends BaseRecyclerKeeper {
      * void boomMenuSelection(...) - request boom menu selection
      */
     private void boomMenuSelection(int index){
+        Log.d("Choice", "DeckKeeper.boomMenuSelection: " + index);
         //update deck selected item
         mBoss.setDeckSelected(mSelectedDeck);
+        Log.d("Choice", "     selected deck: " + mSelectedDeck.deck);
 
         //create intent buffer
         Intent intent;

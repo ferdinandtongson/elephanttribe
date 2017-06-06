@@ -62,31 +62,63 @@
         android:layout_marginEnd="16dp"
         android:background="@color/cobalt"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/choiceRecycler"
+    <RelativeLayout android:id="@+id/flashcard_relChoices"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/choiceCardView"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:padding="@dimen/standard_padding"
-        android:focusable="true"
-        android:scrollbars="vertical"
-        />
+        android:layout_below="@id/choiceCardView"
+        >
 
-    <TextView
-        android:id="@+id/choiceEmptyView"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/choiceRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:padding="@dimen/standard_padding"
+            android:focusable="true"
+            android:scrollbars="vertical"
+            />
+
+        <TextView
+            android:id="@+id/choiceEmptyView"
+            style="@style/Elephant.EmptyText.Small"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/flashcard_relScore"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/choiceCardView"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:visibility="gone"
-        android:textSize="@dimen/standard_padding"
-        />
+        android:layout_below="@id/choiceCardView"
+        android:background="@color/cobalt"
+        >
 
+        <TextView android:id="@+id/flashcard_txtDeck"
+            android:text="@string/name"
+            android:gravity="center"
+            android:textSize="@dimen/textSize_xLarge"
+            style="@style/Elephant.TextView.InfoTitle"/>
 
-</RelativeLayout>
+        <TextView android:id="@+id/flashcard_txtOverall"
+            android:layout_below="@id/flashcard_txtDeck"
+            android:text="@string/name"
+            style="@style/Elephant.TextView.InfoTitle"/>
+
+        <TextView android:id="@+id/flashcard_txtLastDate"
+            android:layout_below="@id/flashcard_txtOverall"
+            android:text="@string/name"
+            style="@style/Elephant.TextView.InfoTitle"/>
+
+        <TextView android:id="@+id/flashcard_txtLastScore"
+            android:layout_below="@id/flashcard_txtLastDate"
+            android:text="@string/name"
+            style="@style/Elephant.TextView.InfoTitle"/>
+
+    </RelativeLayout>
+
+    </RelativeLayout>

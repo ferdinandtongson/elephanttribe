@@ -67,17 +67,16 @@ public class FlashcardKeeper extends BaseKeeper {
 
         //get maid registry
         MaidRegistry maidRegistry = MaidRegistry.getInstance();
-        maid = maidRegistry.requestMaid(Boss.MAID_FLASHCARD_SIMPLE);
 
         //check flashcard mode
-        if(mMode == Boss.MODE_FLASHCARD_SIMPLE){
+        if(mMode == Boss.FLASHCARD_MODE_CHOICE){
             //todo - flashcard auot-flip option is disabled
             //request regular flip maid
-            //maid = maidRegistry.requestMaid(Boss.MAID_FLASHCARD_SIMPLE);
+            maid = maidRegistry.requestMaid(Boss.MAID_FLASHCARD_SIMPLE);
         }
         else{
             //request multiple choice maid
-            //maid = maidRegistry.requestMaid(Boss.MAID_FLASHCARD_CHOICE);
+            maid = maidRegistry.requestMaid(Boss.MAID_FLASHCARD_CHOICE);
         }
 
         //load fragment from maid
@@ -126,8 +125,8 @@ public class FlashcardKeeper extends BaseKeeper {
     private void initializeMaid(String userId) {
         //get maid registry
         MaidRegistry maidRegistry = MaidRegistry.getInstance();
-        maidRegistry.initializeFlashcardMaid(Boss.MAID_FLASHCARD_SIMPLE, R.layout.frg_flashcard, userId);
-        //maidRegistry.initializeFlashcardChoiceMaid(Boss.MAID_FLASHCARD_CHOICE, R.layout.frg_flashcard_choice, userId);
+        maidRegistry.initializeFlashcardMaid(Boss.MAID_FLASHCARD_SIMPLE, R.layout.frg_flashcard);
+        maidRegistry.initializeFlashcardChoiceMaid(Boss.MAID_FLASHCARD_CHOICE, R.layout.frg_flashcard_choice);
 
         //flashcard auto-flip disabled
         //maidRegistry.initializeFlashcardAutoMaid(Boss.MAID_FLASHCARD_SIMPLE_AUTO, R.layout.frg_flashcard_auto, userId);

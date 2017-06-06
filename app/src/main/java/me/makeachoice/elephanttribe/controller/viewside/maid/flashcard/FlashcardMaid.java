@@ -38,8 +38,9 @@ public class FlashcardMaid extends BaseMaid {
     private String mMsgStart;
     private String mMsgLoading;
 
-    private CardView mCrdFlashcard;
 
+    //preference variables
+    private boolean mIsRandomized;
     private long mDuration;
     private long mDurationHalf;
 
@@ -48,7 +49,6 @@ public class FlashcardMaid extends BaseMaid {
     private int mMaxCount;
     private int mCardIndex;
 
-    private boolean mIsRandomized;
     private boolean mFlippingCard;
     private boolean mCardUp;
 
@@ -62,14 +62,12 @@ public class FlashcardMaid extends BaseMaid {
  */
 /**************************************************************************************************/
 
-    public FlashcardMaid(String maidName, int layoutId, String userId){
+    public FlashcardMaid(String maidName, int layoutId){
         //get maid name
         mMaidName = maidName;
 
         //get fragment layout resource id
         mLayoutId = layoutId;
-
-        mUserId = userId;
 
         mCards = new ArrayList<>();
 
@@ -132,7 +130,7 @@ public class FlashcardMaid extends BaseMaid {
         mIsRandomized = mPref.getFlashcardRandomized();
 
         //get animation duration time
-        mDuration = mPref.getAnimationDuration();
+        mDuration = mPref.getFlashcardFlipDuration();
 
         //get 1/2 duration time
         mDurationHalf = mDuration/2;
@@ -140,96 +138,6 @@ public class FlashcardMaid extends BaseMaid {
 
 /**************************************************************************************************/
 
-
-/**************************************************************************************************/
-/*
- * Animator Methods:
- *      void initializeAnimator() - initialize animator objects
- */
-/**************************************************************************************************/
-
-    //animator cardView objects
-    private AnimatorSet mFlipCard;
-    private AnimatorSet mFadeInAnswer;
-    private AnimatorSet mFadeInFlippedCounter;
-
-    //animator textView objects
-    private AnimatorSet mFadeInFlashcard;
-    private AnimatorSet mFadeOutFlashcard;
-    private AnimatorSet mFadeInCounter;
-    private AnimatorSet mFadeOutCounter;
-
-    /*
-     * void initializeAnimator() - initialize animator objects
-     */
-    private void initializeAnimator(){
-        //flashcard fade in animator
-        mFadeInFlashcard = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
-                R.animator.flashcard_fade_in);
-        mFadeInFlashcard.setTarget(mRelCard);
-        mFadeInFlashcard.setDuration(mDurationHalf);
-
-        //flashcard fade out animator
-        mFadeOutFlashcard = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
-                R.animator.flashcard_fade_out);
-        mFadeOutFlashcard.setTarget(mRelCard);
-        mFadeOutFlashcard.setDuration(mDurationHalf);
-
-        //counter fade in animator (displayed on flashcard side)
-        mFadeInCounter = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
-                R.animator.flashcard_fade_in);
-        mFadeInCounter.setTarget(mTxtFlashcardCounter);
-        mFadeInCounter.setDuration(mDurationHalf);
-
-        //counter fade out animator (displayed on flashcard side)
-        mFadeOutCounter = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
-                R.animator.flashcard_fade_out);
-        mFadeOutCounter.setTarget(mTxtFlashcardCounter);
-        mFadeOutCounter.setDuration(mDurationHalf);
-
-        //answer fade in animator
-        mFadeInAnswer = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
-                R.animator.answer_fade_in);
-        mFadeInAnswer.setTarget(mRelAnswer);
-        mFadeInAnswer.setDuration(mDurationHalf);
-
-        //counter fade in animator (displayed on answer side)
-        mFadeInFlippedCounter = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
-                R.animator.answer_fade_in);
-        mFadeInFlippedCounter.setTarget(mTxtAnswerCounter);
-        mFadeInFlippedCounter.setDuration(mDurationHalf);
-
-        //card flip animator
-        mFlipCard = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
-                R.animator.card_flip);
-        mFlipCard.setTarget(mCrdFlashcard);
-        mFlipCard.setDuration(mDuration);
-
-        mFlipCard.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-                mFlippingCard = true;
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                mFlippingCard = false;
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-                //does nothing
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-                //does nothing
-            }
-        });
-
-    }
-
-/**************************************************************************************************/
 
 
 /**************************************************************************************************/
@@ -350,7 +258,7 @@ public class FlashcardMaid extends BaseMaid {
 /**************************************************************************************************/
 /*
  * RelativeLayout Methods:
- *      void initializePreferenceValues() - initialize preference values
+ *      void initializeRelativeLayout() - initialize relativeLayout components
  *      void hideLayoutAnswer() - hide relativeLayout answer component
  */
 /**************************************************************************************************/
@@ -384,104 +292,15 @@ public class FlashcardMaid extends BaseMaid {
 
 /**************************************************************************************************/
 /*
- * FlashcardButler Methods:
- *      void initializeButler() - initialize flashcard butler for retrieving flashcard data
- *      void butlerFlashcardRequest() - request butler to retrieve flashcard data
- *      void flashcardLoaded() - flashcard item data has been loaded
- */
-/**************************************************************************************************/
-
-    //butler component
-    private FlashcardButler mFlashcardButler;
-
-    /*
-     * void initializeButler() - initialize flashcard butler for retrieving flashcard data
-     */
-    private void initializeButler(){
-        //get card butler class
-        mFlashcardButler = new FlashcardButler(mActivity, mUserId);
-
-        //set butler onLoaded listener
-        mFlashcardButler.setOnLoadedListener(new MyButler.OnLoadedListener() {
-            @Override
-            public void onLoaded(ArrayList itemList) {
-                //loaded flashcard data
-                flashcardLoaded(itemList);
-            }
-        });
-
-    }
-
-    /*
-     * void butlerFlashcardRequest() - request butler to retrieve flashcard data
-     */
-    private void butlerFlashcardRequest(){
-        //update flashcard & answer textView component
-        updateFlashcardAnswerView(mMsgLoading, "");
-
-        //disable cardView component
-        enableCardOnClick(false);
-
-        //get deck id from selected deck
-        //todo - String deckId = mBoss.getDeckSelected().deckId;
-        String deckId = mStrAnonymous;
-
-        //load flashcards
-        mFlashcardButler.loadByDeckId(Boss.LOADER_DECK, deckId);
-    }
-
-    /*
-     * void flashcardLoaded() - flashcard item data has been loaded
-     */
-    private void flashcardLoaded(ArrayList<FlashcardItem> itemList){
-        Log.d("Choice", "FlashcardMaid.flashcardLoaded: " + itemList.size());
-        FlashcardItem item01 = new FlashcardItem();
-        item01.card = "card01";
-        item01.answer = "answer01";
-        FlashcardItem item02 = new FlashcardItem();
-        item02.card = "card02";
-        item02.answer = "answer02";
-        FlashcardItem item03 = new FlashcardItem();
-        item03.card = "card03";
-        item03.answer = "answer03";
-        FlashcardItem item04 = new FlashcardItem();
-        item04.card = "card04";
-        item04.answer = "answer04";
-        FlashcardItem item05 = new FlashcardItem();
-        item05.card = "card05";
-        item05.answer = "answer05";
-
-        itemList.add(item01);
-        itemList.add(item02);
-        itemList.add(item03);
-        itemList.add(item04);
-        itemList.add(item05);
-
-
-        //get number of cards in deck
-        mMaxCount = itemList.size();
-
-        //save card items to buffer
-        mCards.addAll(itemList);
-
-        //enable cardView component
-        enableCardOnClick(true);
-
-        //shuffle deck
-        shuffleDeck();
-
-    }
-
-/**************************************************************************************************/
-
-
-/**************************************************************************************************/
-/*
  * CardView Methods:
  *      void initializeCardView() - initialize cardView component
  *      void enableCardOnClick(...) - enable cardView to accept onClick events or not
  */
 /**************************************************************************************************/
+
+    //cardView component
+    private CardView mCrdFlashcard;
+
     /*
      * void initializeCardView() - initialize cardView component
      */
@@ -532,6 +351,167 @@ public class FlashcardMaid extends BaseMaid {
     }
 
 /**************************************************************************************************/
+
+
+/**************************************************************************************************/
+/*
+ * Animator Methods:
+ *      void initializeAnimator() - initialize animator objects
+ */
+/**************************************************************************************************/
+
+    //animator cardView objects
+    private AnimatorSet mFlipCard;
+    private AnimatorSet mFadeInAnswer;
+    private AnimatorSet mFadeInFlippedCounter;
+
+    //animator textView objects
+    private AnimatorSet mFadeInFlashcard;
+    private AnimatorSet mFadeOutFlashcard;
+    private AnimatorSet mFadeInCounter;
+    private AnimatorSet mFadeOutCounter;
+
+    /*
+     * void initializeAnimator() - initialize animator objects
+     */
+    private void initializeAnimator(){
+        //flashcard fade in animator
+        mFadeInFlashcard = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
+                R.animator.flashcard_fade_in);
+        mFadeInFlashcard.setTarget(mRelCard);
+        mFadeInFlashcard.setDuration(mDurationHalf);
+
+        //flashcard fade out animator
+        mFadeOutFlashcard = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
+                R.animator.flashcard_fade_out);
+        mFadeOutFlashcard.setTarget(mRelCard);
+        mFadeOutFlashcard.setDuration(mDurationHalf);
+
+        //counter fade in animator (displayed on flashcard side)
+        mFadeInCounter = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
+                R.animator.flashcard_fade_in);
+        mFadeInCounter.setTarget(mTxtFlashcardCounter);
+        mFadeInCounter.setDuration(mDurationHalf);
+
+        //counter fade out animator (displayed on flashcard side)
+        mFadeOutCounter = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
+                R.animator.flashcard_fade_out);
+        mFadeOutCounter.setTarget(mTxtFlashcardCounter);
+        mFadeOutCounter.setDuration(mDurationHalf);
+
+        //answer fade in animator
+        mFadeInAnswer = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
+                R.animator.answer_fade_in);
+        mFadeInAnswer.setTarget(mRelAnswer);
+        mFadeInAnswer.setDuration(mDurationHalf);
+
+        //counter fade in animator (displayed on answer side)
+        mFadeInFlippedCounter = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
+                R.animator.answer_fade_in);
+        mFadeInFlippedCounter.setTarget(mTxtAnswerCounter);
+        mFadeInFlippedCounter.setDuration(mDurationHalf);
+
+        //card flip animator
+        mFlipCard = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity,
+                R.animator.card_flip);
+        mFlipCard.setTarget(mCrdFlashcard);
+        mFlipCard.setDuration(mDuration);
+
+        mFlipCard.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                mFlippingCard = true;
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mFlippingCard = false;
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                //does nothing
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                //does nothing
+            }
+        });
+
+    }
+
+/**************************************************************************************************/
+
+
+/**************************************************************************************************/
+/*
+ * FlashcardButler Methods:
+ *      void initializeButler() - initialize flashcard butler for retrieving flashcard data
+ *      void butlerFlashcardRequest() - request butler to retrieve flashcard data
+ *      void flashcardLoaded() - flashcard item data has been loaded
+ */
+/**************************************************************************************************/
+
+    //butler component
+    private FlashcardButler mFlashcardButler;
+
+    /*
+     * void initializeButler() - initialize flashcard butler for retrieving flashcard data
+     */
+    private void initializeButler(){
+        //get card butler class
+        mFlashcardButler = new FlashcardButler(mActivity, mUserId);
+
+        //set butler onLoaded listener
+        mFlashcardButler.setOnLoadedListener(new MyButler.OnLoadedListener() {
+            @Override
+            public void onLoaded(ArrayList itemList) {
+                //loaded flashcard data
+                flashcardLoaded(itemList);
+            }
+        });
+
+    }
+
+    /*
+     * void butlerFlashcardRequest() - request butler to retrieve flashcard data
+     */
+    private void butlerFlashcardRequest(){
+        //update flashcard & answer textView component
+        updateFlashcardAnswerView(mMsgLoading, "");
+
+        //disable cardView component
+        enableCardOnClick(false);
+
+        //get deck id from selected deck
+        String deckId = mBoss.getDeckSelected().deckId;
+
+        //load flashcards
+        mFlashcardButler.loadByDeckId(Boss.LOADER_DECK, deckId);
+    }
+
+    /*
+     * void flashcardLoaded() - flashcard item data has been loaded
+     */
+    private void flashcardLoaded(ArrayList<FlashcardItem> itemList){
+
+        //get number of cards in deck
+        mMaxCount = itemList.size();
+
+        //save card items to buffer
+        mCards.addAll(itemList);
+
+        //enable cardView component
+        enableCardOnClick(true);
+
+        //shuffle deck
+        shuffleDeck();
+
+    }
+
+/**************************************************************************************************/
+
 
 
 /**************************************************************************************************/

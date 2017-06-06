@@ -55,6 +55,7 @@
     <string name="msg_click_start" translatable="true">Click to Start</string>
     <string name="msg_loading_flashcards" translatable="true">Loading flashcards...</string>
     <string name="msg_add_description" translatable="true">Add Description</string>
+    <string name="msg_none" translatable="true">none</string>
 
     <!-- Input Error Messages -->
     <string name="msg_invalid_character" translatable="true">Invalid Character</string>
@@ -87,9 +88,12 @@
     <string name="flashcards" translatable="true">Flashcards</string>
     <string name="help" translatable="true">Help</string>
     <string name="info" translatable="true">Info</string>
+    <string name="last_date" translatable="true">Last Date</string>
+    <string name="last_score" translatable="true">Last Score</string>
     <string name="market" translatable="true">Market</string>
     <string name="modify" translatable="true">Modify</string>
     <string name="name" translatable="true">Name</string>
+    <string name="overall_score" translatable="true">Overall Score</string>
     <string name="save" translatable="true">Save</string>
     <string name="saved" translatable="true">Saved</string>
     <string name="school" translatable="true">School</string>
